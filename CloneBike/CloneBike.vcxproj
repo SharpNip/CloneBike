@@ -86,7 +86,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GimmickV2.h" />
+    <ClInclude Include="Libraries.h" />
     <ClInclude Include="Motorist.h" />
+    <ClInclude Include="ResourceIDs.h" />
     <ClInclude Include="Ship.h" />
   </ItemGroup>
   <ItemGroup>

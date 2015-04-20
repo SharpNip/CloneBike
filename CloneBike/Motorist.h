@@ -19,14 +19,14 @@ public:
 
 
 private:
-	/*	
-		Standby : Idle state
-		Drive : When driving normally
-		Roll : When player has crashed
-		Run : Running to bike
-		Left : Turns left (Up)
-		Right : Turns right (Down)
-	*/
+	//	
+	//	Standby : Idle state
+	//	Drive   : When driving normally
+	//  Roll    : When player has crashed
+	//	Run     : Running to bike
+	//	Left    : Turns left (Up)
+	//	Right   : Turns right (Down)
+	
 	enum action { STANDBY, DRIVE, ROLL, RUN, LEFT, RIGHT };
 	action currentAction;
 	void actionState(action newAction);
@@ -37,10 +37,10 @@ private:
 	const int TURNL_NO_FRAMES()        { return 1; }
 	const int TURNR_NO_FRAMES()        { return 1; }
 	const point<int> FRAME_SIZE()      { return{ 82, 94 }; };
-	const point<int> DRIVE_START_SRC() { return{ 0, 94  }; };
-	const point<int> ROLL_START_SRC()  { return{ 0, 188 }; };
-	const point<int> TURNL_START_SRC() { return{ 0, 308 }; };
-	const point<int> TURNR_START_SRC() { return{ 0, 402 }; };
+	const point<int> DRIVE_START_SRC() { return{ 4, 97  }; };
+	const point<int> ROLL_START_SRC()  { return{ 4, 188 }; };
+	const point<int> TURNL_START_SRC() { return{ 4, 302 }; };
+	const point<int> TURNR_START_SRC() { return{ 4, 398 }; };
 
 
 

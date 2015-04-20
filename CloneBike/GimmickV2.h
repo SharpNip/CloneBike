@@ -1,3 +1,4 @@
+/*
 #pragma once
 //Second & slightly more complex iteration.
 //There's a billion ways to handle this but with only 3 animations this works just fine for our current purpose.
@@ -37,3 +38,4 @@ private:
 	const point<int> DIZZY_START_SRC() { return{ 2, 202 }; };
 };
 
+*/

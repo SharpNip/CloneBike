@@ -11,6 +11,7 @@ int main(int argc, char* args[])
 	
 	Textures->LoadTexture(Texture::ID::Motorist, "CharSheet.png");
 	
+
 	Motorist* motorist = new Motorist();
 	// Run the engin
 	Engine::GetInstance()->Run();

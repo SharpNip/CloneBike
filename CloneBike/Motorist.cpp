@@ -4,14 +4,16 @@
 Motorist::Motorist()
 	: Animation(Texture::ID::Motorist, DRIVE_NO_FRAMES(), ANIM_DEFAULT_SPEED, DRIVE_START_SRC(), FRAME_SIZE())
 	, currentAction(DRIVE)
+	, jumpHeight(0, 0)
+	, onGround(200, 475)
 {
 
 	//Start the animation on creation
 	this->Play();
 	//Make it loop
-	this->SetIsLooping(true);
+	this->SetIsLooping(true);	
 
-	this->SetPosition(200, 475);
+	this->SetPosition(onGround.x, onGround.y);
 }
 
 

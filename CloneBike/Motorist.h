@@ -30,6 +30,9 @@ private:
 	enum action { STANDBY, DRIVE, ROLL, RUN, LEFT, RIGHT };
 	action currentAction;
 	void actionState(action newAction);
+
+	point<float> jumpHeight;
+	point<float> onGround;
 	
 	const int DRIVE_NO_FRAMES()        { return 2; }
 	const int ROLL_NO_FRAMES()         { return 12; }

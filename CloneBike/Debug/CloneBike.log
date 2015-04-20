@@ -1,13 +1,17 @@
-﻿La génération a démarré 2015-04-20 15:52:03.
+﻿La génération a démarré 2015-04-20 16:10:42.
      1>Projet "D:\School Related\CloneBike\CloneBike\CloneBike.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Motorist.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Motorist.cpp Source.cpp
          Motorist.cpp
      1>d:\school related\clonebike\clonebike\motorist.cpp(16): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
      1>d:\school related\bart-sdl-engine-h15\src\core\point.h(13): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
                  d:\school related\bart-sdl-engine-h15\src\core\point.h(12) : lors de la compilation de la fonction membre 'point<float>::point(int,int)' de la classe modèle
                  d:\school related\clonebike\clonebike\motorist.cpp(9) : voir la référence à l'instanciation de la fonction modèle 'point<float>::point(int,int)' en cours de compilation
                  d:\school related\clonebike\clonebike\motorist.h(34) : voir la référence à l'instanciation de la classe modèle 'point<float>' en cours de compilation
+         Génération de code en cours...
+         Compilation en cours...
+         Source.cpp
+         Génération de code en cours...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\School Related\CloneBike\Debug\CloneBike.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_image.lib SDL2_ttf.lib SDL2_mixer.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\School Related\CloneBike\Debug\CloneBike.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\School Related\CloneBike\Debug\CloneBike.lib" /MACHINE:X86 Debug\GimmickV2.obj
          Debug\Motorist.obj
@@ -19,4 +23,4 @@
 
 La génération a réussi.
 
-Temps écoulé 00:00:00.85
+Temps écoulé 00:00:01.49

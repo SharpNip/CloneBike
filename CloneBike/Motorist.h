@@ -39,11 +39,11 @@ private:
 	const int RUN_NO_FRAMES()          { return 0;}
 	const int TURNL_NO_FRAMES()        { return 1; }
 	const int TURNR_NO_FRAMES()        { return 1; }
-	const point<int> FRAME_SIZE()      { return{ 82, 94 }; };
-	const point<int> DRIVE_START_SRC() { return{ 4, 97  }; };
-	const point<int> ROLL_START_SRC()  { return{ 4, 188 }; };
-	const point<int> TURNL_START_SRC() { return{ 4, 302 }; };
-	const point<int> TURNR_START_SRC() { return{ 4, 398 }; };
+	const point<int> FRAME_SIZE()      { return{ 80, 94 }; };
+	const point<int> DRIVE_START_SRC() { return{ 0, 97  }; };
+	const point<int> ROLL_START_SRC()  { return{ 0, 188 }; };
+	const point<int> TURNL_START_SRC() { return{ 0, 302 }; };
+	const point<int> TURNR_START_SRC() { return{ 0, 398 }; };
 
 
 

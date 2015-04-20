@@ -10,9 +10,10 @@ int main(int argc, char* args[])
 	// Declaration of all objects
 	
 	Textures->LoadTexture(Texture::ID::Motorist, "CharSheet.png");
+	Textures->LoadTexture(Texture::ID::Background, "Background.png");
 	
-
 	Motorist* motorist = new Motorist();
+	
 	// Run the engin
 	Engine::GetInstance()->Run();
 	// Make sure to delete all of the items.

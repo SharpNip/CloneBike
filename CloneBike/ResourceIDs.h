@@ -5,7 +5,8 @@ namespace Texture
 {
 	enum ID
 	{
-		Motorist
+		Motorist,
+		Background
 	};
 }
 

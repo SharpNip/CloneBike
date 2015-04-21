@@ -6,7 +6,9 @@ namespace Texture
 	enum ID
 	{
 		Motorist,
-		Background
+		Background,
+		HudOverlay,
+		Startscreen
 	};
 }
 

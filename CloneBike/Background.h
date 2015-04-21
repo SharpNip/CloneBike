@@ -19,5 +19,12 @@ class Background :
 public:
 	Background();
 	~Background();
+
+
+
+
+private:
+	float passingSpeed;
+	float baseSpeed;
 };
 

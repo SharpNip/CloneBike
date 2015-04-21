@@ -23,18 +23,18 @@
 //Global//
 //Numpad_+ - 100% Global Volume
 //Numpad_- - 50% Global Volume
-
-class Theme :
-	public Component
-{
-public:
-	Theme();
-	~Theme();
-
-	void Start();
-	void Update();
-	void Stop();
-
-private:
-};
-
+//
+//class Theme :
+//	public Component
+//{
+//public:
+//	Theme();
+//	~Theme();
+//
+//	void Start();
+//	void Update();
+//	void Stop();
+//
+//private:
+//};
+//

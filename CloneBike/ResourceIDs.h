@@ -8,7 +8,27 @@ namespace Texture
 		Motorist,
 		Background,
 		HudOverlay,
-		Startscreen
+		Startscreen,
+		Jump1,
+		Jump2,
+		Jump3,
+		Jump4,
+		Jump5,
+		Jump6,
+		Jump7,
+		SuperJump,
+		Finish,
+		AllGrass,
+		BotGrass,
+		BotSpeeder,
+		BotBlocker,
+		TopBlocker,
+		TopSpeeder,
+		TopGrass,
+		Mountain,
+		TopSlower,
+		BotSlower,
+		Overpass
 	};
 }
 
@@ -16,7 +36,9 @@ namespace Sound
 {
 	enum ID
 	{
-		Motor
+		Motor,
+		Jump,
+		Rolling
 	};
 }
 namespace Music

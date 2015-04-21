@@ -87,12 +87,6 @@
     <ClCompile Include="Overpass.cpp">
       <Filter>Fichiers sources\LevelElements</Filter>
     </ClCompile>
-    <ClCompile Include="Slower1.cpp">
-      <Filter>Fichiers sources\LevelElements</Filter>
-    </ClCompile>
-    <ClCompile Include="Slower2.cpp">
-      <Filter>Fichiers sources\LevelElements</Filter>
-    </ClCompile>
     <ClCompile Include="SuperJump.cpp">
       <Filter>Fichiers sources\LevelElements</Filter>
     </ClCompile>
@@ -103,6 +97,12 @@
       <Filter>Fichiers sources\LevelElements</Filter>
     </ClCompile>
     <ClCompile Include="TopSpeeder.cpp">
+      <Filter>Fichiers sources\LevelElements</Filter>
+    </ClCompile>
+    <ClCompile Include="TopSlower.cpp">
+      <Filter>Fichiers sources\LevelElements</Filter>
+    </ClCompile>
+    <ClCompile Include="BotSlower.cpp">
       <Filter>Fichiers sources\LevelElements</Filter>
     </ClCompile>
   </ItemGroup>
@@ -176,12 +176,6 @@
     <ClInclude Include="Overpass.h">
       <Filter>Fichiers d%27en-tête\LevelElements</Filter>
     </ClInclude>
-    <ClInclude Include="Slower1.h">
-      <Filter>Fichiers d%27en-tête\LevelElements</Filter>
-    </ClInclude>
-    <ClInclude Include="Slower2.h">
-      <Filter>Fichiers d%27en-tête\LevelElements</Filter>
-    </ClInclude>
     <ClInclude Include="SuperJump.h">
       <Filter>Fichiers d%27en-tête\LevelElements</Filter>
     </ClInclude>
@@ -192,6 +186,12 @@
       <Filter>Fichiers d%27en-tête\LevelElements</Filter>
     </ClInclude>
     <ClInclude Include="TopSpeeder.h">
+      <Filter>Fichiers d%27en-tête\LevelElements</Filter>
+    </ClInclude>
+    <ClInclude Include="TopSlower.h">
+      <Filter>Fichiers d%27en-tête\LevelElements</Filter>
+    </ClInclude>
+    <ClInclude Include="BotSlower.h">
       <Filter>Fichiers d%27en-tête\LevelElements</Filter>
     </ClInclude>
   </ItemGroup>

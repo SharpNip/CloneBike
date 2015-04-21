@@ -98,8 +98,8 @@
     <ClCompile Include="Mountain.cpp" />
     <ClCompile Include="Overpass.cpp" />
     <ClCompile Include="Ship.cpp" />
-    <ClCompile Include="Slower1.cpp" />
-    <ClCompile Include="Slower2.cpp" />
+    <ClCompile Include="TopSlower.cpp" />
+    <ClCompile Include="BotSlower.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="StartScreen.cpp" />
     <ClCompile Include="SuperJump.cpp" />
@@ -130,8 +130,8 @@
     <ClInclude Include="Overpass.h" />
     <ClInclude Include="ResourceIDs.h" />
     <ClInclude Include="Ship.h" />
-    <ClInclude Include="Slower1.h" />
-    <ClInclude Include="Slower2.h" />
+    <ClInclude Include="TopSlower.h" />
+    <ClInclude Include="BotSlower.h" />
     <ClInclude Include="StartScreen.h" />
     <ClInclude Include="SuperJump.h" />
     <ClInclude Include="Theme.h" />

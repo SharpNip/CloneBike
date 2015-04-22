@@ -6,6 +6,9 @@ Motorist::Motorist()
 	, currentAction(DRIVE)
 	, jumpHeight(0, 0)
 	, onGround(200, 475)
+	, isJumping(false)
+	, currentY(currentLane)
+	, currentLane(LANE_2)
 {
 
 	//Start the animation on creation
@@ -13,7 +16,7 @@ Motorist::Motorist()
 	//Make it loop
 	this->SetIsLooping(true);	
 
-	this->SetPosition(onGround.x, onGround.y);
+	this->SetPosition(PLAYER_OFFSET, currentLane);
 }
 
 
@@ -35,17 +38,51 @@ void Motorist::actionState(action newAction)
 		case ROLL:
 			this->SetSrcPos(ROLL_START_SRC());
 			this->SetNbFrame(ROLL_NO_FRAMES());
-			this->SetFrameRate(ANIM_DEFAULT_SPEED);
+			this->SetFrameRate(ANIM_FAST_SPEED);
 			break;
+			// turn to go up 1 lane
 		case LEFT:
 			this->SetSrcPos(TURNL_START_SRC());
 			this->SetNbFrame(TURNL_NO_FRAMES());
-			this->SetFrameRate(ANIM_DEFAULT_SPEED);
+			if (this->GetCurrentLane() == LANE_4)
+			{
+				this->SetLane(LANE_3);
+				this->SetPosition(PLAYER_OFFSET, LANE_3);
+			}
+			else if (this->GetCurrentLane() == LANE_3)
+			{
+				this->SetLane(LANE_2);
+				this->SetPosition(PLAYER_OFFSET, LANE_2);
+			}
+			else if (this->GetCurrentLane() == LANE_2)
+			{
+				this->SetLane(LANE_1);
+				this->SetPosition(PLAYER_OFFSET, LANE_1);
+			}
 			break;
+			// turn to go down 1 lane
 		case RIGHT:
 			this->SetSrcPos(TURNR_START_SRC());
 			this->SetNbFrame(TURNR_NO_FRAMES());
-			this->SetFrameRate(ANIM_DEFAULT_SPEED);
+
+			/* use delta time here to have movement variation
+			*/
+
+			if (this->GetCurrentLane() == LANE_1)
+			{
+				this->SetLane(LANE_2);
+				this->SetPosition(PLAYER_OFFSET, LANE_2);
+			}
+			else if (this->GetCurrentLane() == LANE_2)
+			{
+				this->SetLane(LANE_3);
+				this->SetPosition(PLAYER_OFFSET, LANE_3);
+			}
+			else if (this->GetCurrentLane() == LANE_3)
+			{
+				this->SetLane(LANE_4);
+				this->SetPosition(PLAYER_OFFSET, LANE_4);
+			}
 			break;
 		default:
 			break;
@@ -61,7 +98,9 @@ void Motorist::actionState(action newAction)
 void Motorist::Update()
 {
 	Animation::Update();
+	float dt = Engine::GetInstance()->GetTimer()->GetDeltaTime();
 
+	Move(dt);
 
 	//Don't mind the brackets. Simply tried to save some screen space.
 	//Press Space to Pause & Resume
@@ -74,24 +113,47 @@ void Motorist::Update()
 		}
 	}
 	//Press 1 for Drive
-	if (Engine::GetInstance()->GetInput()->IsKeyPressed(SDL_SCANCODE_1)){
+	if (BUTTON->IsKeyPressed(SDL_SCANCODE_1)){
 		actionState(DRIVE);
 	}
 	//Press 2 for Rolling
-	if (Engine::GetInstance()->GetInput()->IsKeyPressed(SDL_SCANCODE_2)){
+	if (BUTTON->IsKeyPressed(SDL_SCANCODE_2)){
 		actionState(ROLL);
 	}
 	//Press 3 for TurnLeft
-	if (Engine::GetInstance()->GetInput()->IsKeyPressed(SDL_SCANCODE_UP)){
+	if (BUTTON->IsKeyPressed(SDL_SCANCODE_UP)){
 		actionState(LEFT);
 	}
 	//Press 3 for TurnRight
-	if (Engine::GetInstance()->GetInput()->IsKeyPressed(SDL_SCANCODE_DOWN)){
+	if (BUTTON->IsKeyPressed(SDL_SCANCODE_DOWN)){
 		actionState(RIGHT);
 	}
-	if (Engine::GetInstance()->GetInput()->IsKeyReleased(SDL_SCANCODE_DOWN) ||
-		Engine::GetInstance()->GetInput()->IsKeyReleased(SDL_SCANCODE_UP)){
+	//Button release for all non-incremental actions
+	if (BUTTON->IsKeyReleased(SDL_SCANCODE_DOWN) ||
+		BUTTON->IsKeyReleased(SDL_SCANCODE_UP)   ||
+		BUTTON->IsKeyReleased(SDL_SCANCODE_J)      )
+	{
 		actionState(DRIVE);
+	}
+	if (BUTTON->IsKeyHeld(SDL_SCANCODE_LEFT) &&
+		/*is on the ground*/	!isJumping)
+	{
+		//actionState()
+	}
+	if (BUTTON->IsKeyHeld(SDL_SCANCODE_RIGHT) &&
+		/*is on the ground*/	!isJumping)
+	{
+
+	}
+	if (BUTTON->IsKeyHeld(SDL_SCANCODE_LEFT) &&
+		/*is in the air*/		 isJumping)
+	{
+		actionState(JUMP);
+	}
+	if (BUTTON->IsKeyHeld(SDL_SCANCODE_RIGHT) &&
+		/*is in the air*/		 isJumping)
+	{
+		actionState(JUMP);
 	}
 
 }

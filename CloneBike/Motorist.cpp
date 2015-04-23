@@ -34,6 +34,22 @@ void Motorist::actionState(action newAction)
 			this->SetSrcPos(DRIVE_START_SRC());
 			this->SetNbFrame(DRIVE_NO_FRAMES());
 			this->SetFrameRate(ANIM_FAST_SPEED);
+			//if (this->GetCurrentY() < LANE_2)
+			//{
+			//	this->SetPosition(PLAYER_OFFSET, LANE_1);
+			//}
+			//else if (this->GetCurrentY() > LANE_2 &&
+			//	this->GetCurrentY() < LANE_3)
+			//{
+			//	this->SetPosition(PLAYER_OFFSET, LANE_2);
+			//}
+			//else if (this->GetCurrentY() > LANE_3 &&
+			//	this->GetCurrentY() < LANE_4)
+			//{
+			//	this->SetPosition(PLAYER_OFFSET, LANE_3);
+			//}
+			//else if (this->GetCurrentY() > LANE_2 &&
+			//	this->SetPosition(PLAYER_OFFSET, LANE_2);
 			break;
 		case ROLL:
 			this->SetSrcPos(ROLL_START_SRC());

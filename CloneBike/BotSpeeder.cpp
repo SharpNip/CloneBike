@@ -8,7 +8,7 @@ BotSpeeder::BotSpeeder()
 	, currentY(0)
 	, currentTime(0)
 {
-	this->SetPosition(currentX, LEVEL_OFFSET);
+	this->SetPosition(PLAYER_OFFSET, LEVEL_OFFSET);
 }
 
 

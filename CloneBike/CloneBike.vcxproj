@@ -81,10 +81,13 @@
   <ItemGroup>
     <ClCompile Include="AllGrass.cpp" />
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="BasicG.cpp" />
     <ClCompile Include="BotBlocker.cpp" />
     <ClCompile Include="BotGrass.cpp" />
     <ClCompile Include="BotSpeeder.cpp" />
+    <ClCompile Include="Crowd.cpp" />
     <ClCompile Include="Finish.cpp" />
+    <ClCompile Include="Gameplay.cpp" />
     <ClCompile Include="GimmickV2.cpp" />
     <ClCompile Include="HudOverlay.cpp" />
     <ClCompile Include="Jump1.cpp" />
@@ -111,10 +114,13 @@
   <ItemGroup>
     <ClInclude Include="AllGrass.h" />
     <ClInclude Include="Background.h" />
+    <ClInclude Include="BasicG.h" />
     <ClInclude Include="BotBlocker.h" />
     <ClInclude Include="BotGrass.h" />
     <ClInclude Include="BotSpeeder.h" />
+    <ClInclude Include="Crowd.h" />
     <ClInclude Include="Finish.h" />
+    <ClInclude Include="Gameplay.h" />
     <ClInclude Include="GimmickV2.h" />
     <ClInclude Include="HudOverlay.h" />
     <ClInclude Include="Jump1.h" />

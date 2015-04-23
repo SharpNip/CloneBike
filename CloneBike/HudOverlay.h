@@ -1,10 +1,15 @@
 #pragma once
-#include "Animation.h"
+#include "Libraries.h"
 class HudOverlay :
-	public Animation
+	public Sprite
 {
 public:
 	HudOverlay();
 	~HudOverlay();
+private:
+	const int itemType;
+	float currentX;
+	float currentY;
+	float currentTime;
 };
 

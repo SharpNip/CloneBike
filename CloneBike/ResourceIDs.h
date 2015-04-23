@@ -28,7 +28,9 @@ namespace Texture
 		Mountain,
 		TopSlower,
 		BotSlower,
-		Overpass
+		Overpass,
+		BasicG,
+		Crowd
 	};
 }
 

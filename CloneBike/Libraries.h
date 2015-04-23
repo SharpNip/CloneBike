@@ -11,6 +11,7 @@
 #include "Jump6.h"
 #include "Jump7.h"
 #include "BotSpeeder.h"
+#include "BasicG.h"
 #include "ResourceIDs.h"
 
 #ifndef BASESPEED
@@ -18,27 +19,32 @@
 #endif 
 
 #ifndef PLAYER_OFFSET 
-#define PLAYER_OFFSET 200
+#define PLAYER_OFFSET 150
 #endif
 
+#ifndef HUD_POS
+#define HUD_POS 600
+#endif
+
+
 #ifndef LEVEL_OFFSET 
-#define LEVEL_OFFSET 188
+#define LEVEL_OFFSET 400
 #endif
 
 #ifndef LANE_1
-#define LANE_1 400
+#define LANE_1 380
 #endif
 
 #ifndef LANE_2
-#define LANE_2 433
+#define LANE_2 410
 #endif
 
 #ifndef LANE_3
-#define LANE_3 466
+#define LANE_3 440
 #endif
 
 #ifndef LANE_4
-#define LANE_4 500
+#define LANE_4 470
 #endif
 
 #ifndef BUTTON

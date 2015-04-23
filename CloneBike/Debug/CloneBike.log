@@ -1,30 +1,51 @@
-﻿La génération a démarré 2015-04-23 09:56:20.
+﻿La génération a démarré 2015-04-23 11:42:48.
      1>Projet "D:\School Related\CloneBike\CloneBike\CloneBike.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt AllGrass.cpp BotBlocker.cpp BotGrass.cpp BotSlower.cpp BotSpeeder.cpp Motorist.cpp Source.cpp SuperJump.cpp Theme.cpp TopBlocker.cpp TopGrass.cpp TopSlower.cpp TopSpeeder.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt AllGrass.cpp Background.cpp BasicG.cpp BotBlocker.cpp BotGrass.cpp BotSpeeder.cpp Crowd.cpp Finish.cpp Gameplay.cpp GimmickV2.cpp HudOverlay.cpp Jump1.cpp Jump2.cpp Jump3.cpp Jump4.cpp Jump5.cpp Jump6.cpp Jump7.cpp Motorist.cpp Mountain.cpp Overpass.cpp Ship.cpp TopSlower.cpp BotSlower.cpp Source.cpp StartScreen.cpp SuperJump.cpp Theme.cpp TopBlocker.cpp TopGrass.cpp TopSpeeder.cpp
          TopSpeeder.cpp
-         TopSlower.cpp
          TopGrass.cpp
          TopBlocker.cpp
+         Theme.cpp
          SuperJump.cpp
+         StartScreen.cpp
          Source.cpp
-         Motorist.cpp
-         BotSpeeder.cpp
-     1>d:\school related\clonebike\clonebike\botspeeder.cpp(11): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
          BotSlower.cpp
+         TopSlower.cpp
+         Ship.cpp
+         Overpass.cpp
+         Mountain.cpp
+         Motorist.cpp
+         Jump7.cpp
+         Jump6.cpp
+         Jump5.cpp
+         Jump4.cpp
+         Jump3.cpp
+         Jump2.cpp
+         Jump1.cpp
+         Génération de code en cours...
+         Compilation en cours...
+         HudOverlay.cpp
+         GimmickV2.cpp
+         Gameplay.cpp
+         Finish.cpp
+         Crowd.cpp
+         BotSpeeder.cpp
          BotGrass.cpp
          BotBlocker.cpp
+         BasicG.cpp
+         Background.cpp
          AllGrass.cpp
          Génération de code en cours...
-         Ignoré... (aucune modification pertinente détectée)
-         Theme.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\School Related\CloneBike\Debug\CloneBike.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_image.lib SDL2_ttf.lib SDL2_mixer.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\School Related\CloneBike\Debug\CloneBike.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\School Related\CloneBike\Debug\CloneBike.lib" /MACHINE:X86 Debug\AllGrass.obj
          Debug\Background.obj
+         Debug\BasicG.obj
          Debug\BotBlocker.obj
          Debug\BotGrass.obj
          Debug\BotSpeeder.obj
+         Debug\Crowd.obj
          Debug\Finish.obj
+         Debug\Gameplay.obj
          Debug\GimmickV2.obj
          Debug\HudOverlay.obj
          Debug\Jump1.obj
@@ -53,4 +74,4 @@
 
 La génération a réussi.
 
-Temps écoulé 00:00:06.25
+Temps écoulé 00:00:14.19

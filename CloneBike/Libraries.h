@@ -10,6 +10,7 @@
 #include "Jump5.h"
 #include "Jump6.h"
 #include "Jump7.h"
+#include "BotSpeeder.h"
 #include "ResourceIDs.h"
 
 #ifndef BASESPEED
@@ -18,6 +19,10 @@
 
 #ifndef PLAYER_OFFSET 
 #define PLAYER_OFFSET 200
+#endif
+
+#ifndef LEVEL_OFFSET 
+#define LEVEL_OFFSET 188
 #endif
 
 #ifndef LANE_1

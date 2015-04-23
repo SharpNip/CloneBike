@@ -1,17 +1,16 @@
-﻿La génération a démarré 2015-04-22 17:03:08.
+﻿La génération a démarré 2015-04-23 09:56:20.
      1>Projet "D:\School Related\CloneBike\CloneBike\CloneBike.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt AllGrass.cpp BotBlocker.cpp BotGrass.cpp BotSlower.cpp BotSpeeder.cpp Motorist.cpp Source.cpp SuperJump.cpp Theme.cpp TopBlocker.cpp TopGrass.cpp TopSlower.cpp TopSpeeder.cpp
-         Source.cpp
-         Motorist.cpp
-         Génération de code en cours...
-         Compilation en cours...
          TopSpeeder.cpp
          TopSlower.cpp
          TopGrass.cpp
          TopBlocker.cpp
          SuperJump.cpp
+         Source.cpp
+         Motorist.cpp
          BotSpeeder.cpp
+     1>d:\school related\clonebike\clonebike\botspeeder.cpp(11): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
          BotSlower.cpp
          BotGrass.cpp
          BotBlocker.cpp
@@ -49,11 +48,9 @@
          Debug\TopGrass.obj
          Debug\TopSpeeder.obj
          "D:\School Related\CloneBike\Debug\Core.lib"
-     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: conflit entre la bibliothÞque par dÚfaut 'msvcrt.lib' et les autres bibliothÞquesá; utilisez /NODEFAULTLIB:library
-     1>Motorist.obj : error LNK2019: symbole externe non rÚsolu "protected: void __thiscall Motorist::Move(float)" (?Move@Motorist@@IAEXM@Z) rÚfÚrencÚ dans la fonction "public: virtual void __thiscall Motorist::Update(void)" (?Update@Motorist@@UAEXXZ)
-     1>D:\School Related\CloneBike\Debug\CloneBike.exe : fatal error LNK1120: 1 externes non rÚsolus
-     1>Génération du projet "D:\School Related\CloneBike\CloneBike\CloneBike.vcxproj" terminée (Build cible(s)) -- ÉCHEC.
+         CloneBike.vcxproj -> D:\School Related\CloneBike\Debug\CloneBike.exe
+     1>Génération du projet "D:\School Related\CloneBike\CloneBike\CloneBike.vcxproj" terminée (Build cible(s)).
 
-ÉCHEC de la build.
+La génération a réussi.
 
-Temps écoulé 00:00:06.88
+Temps écoulé 00:00:06.25

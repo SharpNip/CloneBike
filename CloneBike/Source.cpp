@@ -34,6 +34,8 @@ int main(int argc, char* args[])
 
 
 	Motorist* motorist = new Motorist();
+
+	BotSpeeder* botSpeeder = new BotSpeeder();
 	
 	
 	

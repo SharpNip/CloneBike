@@ -98,9 +98,9 @@ void Motorist::actionState(action newAction)
 void Motorist::Update()
 {
 	Animation::Update();
-	float dt = Engine::GetInstance()->GetTimer()->GetDeltaTime();
+	//float dt = Engine::GetInstance()->GetTimer()->GetDeltaTime();
 
-	Move(dt);
+	//Move(dt);
 
 	//Don't mind the brackets. Simply tried to save some screen space.
 	//Press Space to Pause & Resume
@@ -148,12 +148,12 @@ void Motorist::Update()
 	if (BUTTON->IsKeyHeld(SDL_SCANCODE_LEFT) &&
 		/*is in the air*/		 isJumping)
 	{
-		actionState(JUMP);
+		//actionState(JUMP);
 	}
 	if (BUTTON->IsKeyHeld(SDL_SCANCODE_RIGHT) &&
 		/*is in the air*/		 isJumping)
 	{
-		actionState(JUMP);
+		//actionState(JUMP);
 	}
 
 }

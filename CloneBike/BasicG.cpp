@@ -15,3 +15,18 @@ BasicG::BasicG()
 BasicG::~BasicG()
 {
 }
+
+void BasicG::Update()
+{
+	float dt = Engine::GetInstance()->GetTimer()->GetDeltaTime();
+	
+	if (BUTTON->IsKeyHeld(SDL_SCANCODE_J))
+	{
+		currentX -= BASESPEED * dt;
+		this->SetPosition(currentX, LEVEL_OFFSET);
+		if (this->currentX < -750)
+		{
+			this->currentX = 0;
+		}
+	}
+}

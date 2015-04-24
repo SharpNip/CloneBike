@@ -7,6 +7,10 @@ class BasicG :
 public:
 	BasicG();
 	~BasicG();
+
+	void Update();
+
+
 private:
 	const int itemType;
 	float currentX;

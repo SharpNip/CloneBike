@@ -23,7 +23,7 @@
 
 
 #ifndef BASE_SPEED
-#define BASESPEED 2
+#define BASESPEED 90
 #endif 
 
 #ifndef SUPER_SPEED

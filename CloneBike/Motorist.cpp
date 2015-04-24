@@ -133,47 +133,60 @@ void Motorist::Update()
 		}
 	}
 	//Press 1 for Drive
-	if (BUTTON->IsKeyPressed(SDL_SCANCODE_1)){
-		actionState(DRIVE);
+	if (BUTTON->IsKeyHeld(SDL_SCANCODE_J)){
+		if (BUTTON->IsKeyHeld(SDL_SCANCODE_UP))
+		{
+			actionState(LEFT);
+		}
+		else if (BUTTON->IsKeyHeld(SDL_SCANCODE_DOWN))
+		{
+			actionState(RIGHT);
+		}
+		else
+		{
+			actionState(DRIVE);
+		}
 	}
-	//Press 2 for Rolling
-	if (BUTTON->IsKeyPressed(SDL_SCANCODE_2)){
-		actionState(ROLL);
-	}
-	//Press 3 for TurnLeft
-	if (BUTTON->IsKeyPressed(SDL_SCANCODE_UP)){
-		actionState(LEFT);
-	}
-	//Press 3 for TurnRight
-	if (BUTTON->IsKeyPressed(SDL_SCANCODE_DOWN)){
-		actionState(RIGHT);
-	}
+	
+	//
+	////Press 2 for Rolling
+	//if (BUTTON->IsKeyPressed(SDL_SCANCODE_2)){
+	//	actionState(ROLL);
+	//}
+	////Press 3 for TurnLeft
+	//if (BUTTON->IsKeyPressed(SDL_SCANCODE_UP)){
+	//	actionState(LEFT);
+	//}
+	////Press 3 for TurnRight
+	//if (BUTTON->IsKeyPressed(SDL_SCANCODE_DOWN)){
+	//	actionState(RIGHT);
+	//}
 	//Button release for all non-incremental actions
 	if (BUTTON->IsKeyReleased(SDL_SCANCODE_DOWN) ||
-		BUTTON->IsKeyReleased(SDL_SCANCODE_UP)   ||
-		BUTTON->IsKeyReleased(SDL_SCANCODE_J)      )
+		BUTTON->IsKeyReleased(SDL_SCANCODE_UP) ||
+		BUTTON->IsKeyReleased(SDL_SCANCODE_J))
 	{
-		actionState(DRIVE);
+		actionState(IDLE);
 	}
-	if (BUTTON->IsKeyHeld(SDL_SCANCODE_LEFT) &&
-		/*is on the ground*/	!isJumping)
-	{
-		//actionState()
-	}
-	if (BUTTON->IsKeyHeld(SDL_SCANCODE_RIGHT) &&
-		/*is on the ground*/	!isJumping)
-	{
-
-	}
-	if (BUTTON->IsKeyHeld(SDL_SCANCODE_LEFT) &&
-		/*is in the air*/		 isJumping)
-	{
-		//actionState(JUMP);
-	}
-	if (BUTTON->IsKeyHeld(SDL_SCANCODE_RIGHT) &&
-		/*is in the air*/		 isJumping)
-	{
-		//actionState(JUMP);
-	}
+	//if (BUTTON->IsKeyHeld(SDL_SCANCODE_LEFT) &&
+	//	/*is on the ground*/	!isJumping)
+	//{
+	//	//actionState()
+	//}
+	//if (BUTTON->IsKeyHeld(SDL_SCANCODE_RIGHT) &&
+	//	/*is on the ground*/	!isJumping)
+	//{
+	//
+	//}
+	//if (BUTTON->IsKeyHeld(SDL_SCANCODE_LEFT) &&
+	//	/*is in the air*/		 isJumping)
+	//{
+	//	//actionState(JUMP);
+	//}
+	//if (BUTTON->IsKeyHeld(SDL_SCANCODE_RIGHT) &&
+	//	/*is in the air*/		 isJumping)
+	//{
+	//	//actionState(JUMP);
+	//}
 
 }

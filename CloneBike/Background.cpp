@@ -4,7 +4,8 @@
 Background::Background()
 	: currentTime(0)
 {
-	 LoadLevel();
+	LoadStartScreen();
+	LoadLevel();
 }
 
 
@@ -40,7 +41,6 @@ void Background::LoadLevel()
 	Textures->LoadTexture(Texture::ID::HudOverlay, "LevelRes/Hud.png");
 	Textures->LoadTexture(Texture::ID::Crowd, "LevelRes/Crowd.png");
 	
-	
 	BasicG*		basic = new BasicG();
 	Crowd*		crowd = new Crowd();
 }
@@ -48,5 +48,9 @@ void Background::Update()
 {
 		
 
+
+}
+void Background::LoadStartScreen()
+{
 
 }

@@ -14,13 +14,14 @@
 //	-Check for what sprites is at the player's location
 
 class Background :
-	public Sprite
+	public Component
 {
 public:
 	Background();
 	Background(float bs, float ss);
 	~Background();
 
+	void LoadStartScreen();
 	void LoadLevel();
 
 	void Update();
@@ -29,7 +30,6 @@ public:
 
 private:
 	double currentTime;
-	Sprite items[];
-
+	
 };
 

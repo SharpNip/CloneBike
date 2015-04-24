@@ -1,11 +1,4 @@
-﻿  Motorist.cpp
-d:\school\bart-project\clonebike\clonebike\background.h(32): warning C4200: nonstandard extension used : zero-sized array in struct/union
-          Cannot generate copy-ctor or copy-assignment operator when UDT contains a zero-sized array
-  Generating Code...
-  Compiling...
-  Source.cpp
-d:\school\bart-project\clonebike\clonebike\background.h(32): warning C4200: nonstandard extension used : zero-sized array in struct/union
-          Cannot generate copy-ctor or copy-assignment operator when UDT contains a zero-sized array
+﻿  Background.cpp
   Generating Code...
   Skipping... (no relevant changes detected)
   TopSpeeder.cpp
@@ -13,6 +6,8 @@ d:\school\bart-project\clonebike\clonebike\background.h(32): warning C4200: nons
   TopGrass.cpp
   TopBlocker.cpp
   SuperJump.cpp
+  Source.cpp
+  Motorist.cpp
   HudOverlay.cpp
   Gameplay.cpp
   Crowd.cpp
@@ -21,6 +16,5 @@ d:\school\bart-project\clonebike\clonebike\background.h(32): warning C4200: nons
   BotGrass.cpp
   BotBlocker.cpp
   BasicG.cpp
-  Background.cpp
   AllGrass.cpp
   CloneBike.vcxproj -> D:\School\Bart-Project\CloneBike\Debug\CloneBike.exe

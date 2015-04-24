@@ -3,6 +3,8 @@
 #include "Sprite.h"
 #include "Text.h"
 #include "Audio.h"
+#include "ResourceIDs.h"
+
 #include "Jump1.h"
 #include "Jump2.h"
 #include "Jump3.h"
@@ -12,11 +14,21 @@
 #include "Jump7.h"
 #include "BotSpeeder.h"
 #include "BasicG.h"
-#include "ResourceIDs.h"
+#include "Crowd.h"
+#include "Ship.h"
+#include "Motorist.h"
+#include "Gameplay.h"
+#include "HudOverlay.h"
+#include "Background.h"
 
-#ifndef BASESPEED
-#define BASESPEED 5
+
+#ifndef BASE_SPEED
+#define BASESPEED 2
 #endif 
+
+#ifndef SUPER_SPEED
+#define SUPER_SPEED 1
+#endif
 
 #ifndef PLAYER_OFFSET 
 #define PLAYER_OFFSET 150

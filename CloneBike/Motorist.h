@@ -27,7 +27,7 @@ private:
 	//	Left    : Turns left (Up)
 	//	Right   : Turns right (Down)
 
-	enum action { STANDBY, DRIVE, ROLL, RUN, LEFT, RIGHT, JUMP };
+	enum action { IDLE, STANDBY, DRIVE, ROLL, RUN, LEFT, RIGHT, JUMP };
 	enum airState { AMAZEBK, VERYBK, MUCHBK, SOMEBK, LILBK, FLAT, LILFWD, FWD , TOOFWD };
 	action currentAction;
 	void actionState(action newAction);
@@ -36,15 +36,17 @@ private:
 	int currentLane;
 	int currentY;
 
-	point<float> jumpHeight;
-	point<float> onGround;
+	float jumpHeight;
+	const int ON_GROUND;
 	
+	const int IDLE_NO_FRAMES()		   { return 1; }
 	const int DRIVE_NO_FRAMES()        { return 2; }
 	const int ROLL_NO_FRAMES()         { return 11; }
 	const int RUN_NO_FRAMES()          { return 0;}
 	const int TURNL_NO_FRAMES()        { return 1; }
 	const int TURNR_NO_FRAMES()        { return 1; }
 	const point<int> FRAME_SIZE()      { return{ 82, 94 }; };
+	const point<int> IDLE_START_SRC()  { return{ 0, 0 }; };
 	const point<int> DRIVE_START_SRC() { return{ 0, 97  }; };
 	const point<int> ROLL_START_SRC()  { return{ 0, 188 }; };
 	const point<int> TURNL_START_SRC() { return{ 0, 302 }; };

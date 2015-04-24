@@ -2,10 +2,10 @@
 #include "Libraries.h"
 
 Motorist::Motorist()
-	: Animation(Texture::ID::Motorist, DRIVE_NO_FRAMES(), ANIM_DEFAULT_SPEED, DRIVE_START_SRC(), FRAME_SIZE())
-	, currentAction(DRIVE)
-	, jumpHeight(0, 0)
-	, onGround(200, 475)
+	: Animation(Texture::ID::Motorist, IDLE_NO_FRAMES(), ANIM_FAST_SPEED, IDLE_START_SRC(), FRAME_SIZE())
+	, currentAction(IDLE)
+	, jumpHeight(0)
+	, ON_GROUND(475)
 	, isJumping(false)
 	, currentY(currentLane)
 	, currentLane(LANE_2)
@@ -30,6 +30,10 @@ void Motorist::actionState(action newAction)
 	{
 		switch (newAction)
 		{
+		case IDLE:
+			this->SetSrcPos(IDLE_START_SRC());
+			this->SetNbFrame(IDLE_NO_FRAMES());
+			break;
 		case DRIVE:
 			this->SetSrcPos(DRIVE_START_SRC());
 			this->SetNbFrame(DRIVE_NO_FRAMES());

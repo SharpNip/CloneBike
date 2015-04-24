@@ -1,6 +1,6 @@
 #pragma once
 #include "Common.h"
-#include "Sprite.h"
+#include "Libraries.h"
 
 ///////////
 //Level
@@ -18,13 +18,18 @@ class Background :
 {
 public:
 	Background();
+	Background(float bs, float ss);
 	~Background();
 
+	void LoadLevel();
 
+	void Update();
 
+	
 
 private:
-	float passingSpeed;
-	float baseSpeed;
+	double currentTime;
+	Sprite items[];
+
 };
 

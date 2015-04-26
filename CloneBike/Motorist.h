@@ -10,6 +10,7 @@
 class Motorist :
 	public Animation
 {
+
 public:
 	Motorist();
 	~Motorist();
@@ -30,7 +31,6 @@ private:
 	enum action { IDLE, STANDBY, DRIVE, ROLL, RUN, LEFT, RIGHT, JUMP };
 	action currentAction;
 	void actionState(action newAction);
-
 	
 	int currentLane;
 	int currentY;
@@ -58,10 +58,9 @@ private:
 	const point<int> TURNR_START_SRC() { return{ 0, 398 }; };
 
 protected:
-	//void Move(float detla);
-	void SetLane(int lane)   { currentLane = lane; }
-	int GetCurrentLane()     { return currentLane; }
-	int GetCurrentY()        { return currentY; }
+	void SetLane(int lane)        { currentLane = lane; }
+	int GetCurrentLane() const    { return currentLane; }
+	int GetCurrentY() const       { return currentY; }
 
 };
 

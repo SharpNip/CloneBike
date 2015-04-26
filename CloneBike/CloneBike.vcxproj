@@ -87,8 +87,7 @@
     <ClCompile Include="BotSpeeder.cpp" />
     <ClCompile Include="Crowd.cpp" />
     <ClCompile Include="Finish.cpp" />
-    <ClCompile Include="Gameplay.cpp" />
-    <ClCompile Include="GimmickV2.cpp" />
+    <ClCompile Include="Obstalces.cpp" />
     <ClCompile Include="HudOverlay.cpp" />
     <ClCompile Include="Jump1.cpp" />
     <ClCompile Include="Jump2.cpp" />
@@ -121,8 +120,7 @@
     <ClInclude Include="BotSpeeder.h" />
     <ClInclude Include="Crowd.h" />
     <ClInclude Include="Finish.h" />
-    <ClInclude Include="Gameplay.h" />
-    <ClInclude Include="GimmickV2.h" />
+    <ClInclude Include="Obstalces.h" />
     <ClInclude Include="HudOverlay.h" />
     <ClInclude Include="Jump1.h" />
     <ClInclude Include="Jump2.h" />

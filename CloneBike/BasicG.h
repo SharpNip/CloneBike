@@ -9,7 +9,7 @@ public:
 	~BasicG();
 
 	void Update();
-	float GetCurrentX(){ return currentX; }
+	float GetCurrentX() const { return currentX; }
 	void SetCurrentX(float point){ this->currentX = point; }
 
 

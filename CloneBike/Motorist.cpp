@@ -6,7 +6,10 @@ Motorist::Motorist()
 	, currentAction(IDLE)
 	, jumpHeight(0)
 	, ON_GROUND(475)
+	, speed(0)
 	, isJumping(false)
+	, isCrashed(false)
+	, isMoving(false)
 	, currentY(currentLane)
 	, currentLane(LANE_2)
 {
@@ -118,9 +121,8 @@ void Motorist::actionState(action newAction)
 void Motorist::Update()
 {
 	Animation::Update();
-	//float dt = Engine::GetInstance()->GetTimer()->GetDeltaTime();
+	float dt = Engine::GetInstance()->GetTimer()->GetDeltaTime();
 
-	//Move(dt);
 
 	//Don't mind the brackets. Simply tried to save some screen space.
 	//Press Space to Pause & Resume
@@ -132,42 +134,7 @@ void Motorist::Update()
 			this->Play();
 		}
 	}
-	//Press 1 for Drive
-	if (BUTTON->IsKeyHeld(SDL_SCANCODE_J)){
-		if (BUTTON->IsKeyHeld(SDL_SCANCODE_UP))
-		{
-			actionState(LEFT);
-		}
-		else if (BUTTON->IsKeyHeld(SDL_SCANCODE_DOWN))
-		{
-			actionState(RIGHT);
-		}
-		else
-		{
-			actionState(DRIVE);
-		}
-	}
-	
-	//
-	////Press 2 for Rolling
-	//if (BUTTON->IsKeyPressed(SDL_SCANCODE_2)){
-	//	actionState(ROLL);
-	//}
-	////Press 3 for TurnLeft
-	//if (BUTTON->IsKeyPressed(SDL_SCANCODE_UP)){
-	//	actionState(LEFT);
-	//}
-	////Press 3 for TurnRight
-	//if (BUTTON->IsKeyPressed(SDL_SCANCODE_DOWN)){
-	//	actionState(RIGHT);
-	//}
-	//Button release for all non-incremental actions
-	if (BUTTON->IsKeyReleased(SDL_SCANCODE_DOWN) ||
-		BUTTON->IsKeyReleased(SDL_SCANCODE_UP) ||
-		BUTTON->IsKeyReleased(SDL_SCANCODE_J))
-	{
-		actionState(IDLE);
-	}
+
 	//if (BUTTON->IsKeyHeld(SDL_SCANCODE_LEFT) &&
 	//	/*is on the ground*/	!isJumping)
 	//{
@@ -188,5 +155,73 @@ void Motorist::Update()
 	//{
 	//	//actionState(JUMP);
 	//}
+
+
+	//Press j for Drive
+	if (BUTTON->IsKeyHeld(SDL_SCANCODE_J)){
+		isMoving = true;
+	}
+	
+	//
+	////Press 2 for Rolling
+	//if (BUTTON->IsKeyPressed(SDL_SCANCODE_2)){
+	//	actionState(ROLL);
+	//}
+	////Press 3 for TurnLeft
+	//if (BUTTON->IsKeyPressed(SDL_SCANCODE_UP)){
+	//	actionState(LEFT);
+	//}
+	////Press 3 for TurnRight
+	//if (BUTTON->IsKeyPressed(SDL_SCANCODE_DOWN)){
+	//	actionState(RIGHT);
+	//}
+	//Button release for all non-incremental actions
+	if (BUTTON->IsKeyReleased(SDL_SCANCODE_DOWN) ||
+		BUTTON->IsKeyReleased(SDL_SCANCODE_UP) ||
+		BUTTON->IsKeyReleased(SDL_SCANCODE_J))
+	{
+		isMoving = false;
+	}
+	
+	
+	
+	if (isMoving)
+	{
+		if (speed < BASESPEED ||
+			speed <= 0)
+		{
+			speed += 30 * dt;
+			if (BUTTON->IsKeyHeld(SDL_SCANCODE_UP))
+			{
+				actionState(LEFT);
+			}
+			else if (BUTTON->IsKeyHeld(SDL_SCANCODE_DOWN))
+			{
+				actionState(RIGHT);
+			}
+			else
+			{
+				actionState(DRIVE);
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	if(isMoving == false)
+	{
+		if (speed > 0)
+		{
+			speed -= 60 * dt;
+		}
+		if (speed <= 0)
+		{
+			actionState(IDLE);
+		}
+	}
+
+	
 
 }

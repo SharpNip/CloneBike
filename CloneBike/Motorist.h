@@ -32,11 +32,16 @@ private:
 	action currentAction;
 	void actionState(action newAction);
 
-	bool isJumping;
+	
 	int currentLane;
 	int currentY;
+	
+	bool isJumping;
+	bool isCrashed;
+	bool isMoving;
 
 	float jumpHeight;
+	float speed;
 	const int ON_GROUND;
 	
 	const int IDLE_NO_FRAMES()		   { return 1; }

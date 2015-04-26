@@ -9,12 +9,14 @@ public:
 	~BasicG();
 
 	void Update();
+	float GetCurrentX(){ return currentX; }
+	void SetCurrentX(float point){ this->currentX = point; }
 
 
 private:
-	const int itemType;
 	float currentX;
 	float currentY;
 	float currentTime;
+	int anchorPoint;
 };
 

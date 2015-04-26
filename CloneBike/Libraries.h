@@ -23,11 +23,11 @@
 
 
 #ifndef BASE_SPEED
-#define BASESPEED 90
+#define BASESPEED 300
 #endif 
 
 #ifndef SUPER_SPEED
-#define SUPER_SPEED 1
+#define SUPER_SPEED 50
 #endif
 
 #ifndef PLAYER_OFFSET 

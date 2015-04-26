@@ -11,6 +11,15 @@ Background::Background()
 
 Background::~Background()
 {
+	for (int i = 0; i < 3; ++i)
+	{
+		there[i] = nullptr;
+	}
+	for (int i = 0; i < 2; ++i)
+	{
+		woah[i] = nullptr;
+	}
+
 }
 
 void Background::LoadLevel()
@@ -41,13 +50,47 @@ void Background::LoadLevel()
 	Textures->LoadTexture(Texture::ID::HudOverlay, "LevelRes/Hud.png");
 	Textures->LoadTexture(Texture::ID::Crowd, "LevelRes/Crowd.png");
 	
-	BasicG*		basic = new BasicG();
-	Crowd*		crowd = new Crowd();
+	BasicG*     basic1 = new BasicG();
+	BasicG*     basic2 = new BasicG();
+	BasicG*     basic3 = new BasicG();
+	there[0] = basic1;
+	there[1] = basic2;
+	there[2] = basic3;
+
+	basic2->SetCurrentX(642.0f);
+	basic2->SetPosition(642, LEVEL_OFFSET);
+	
+	basic3->SetCurrentX(1284.0f);
+	basic3->SetPosition(1284, LEVEL_OFFSET);
+
+	Crowd*		crowd1 = new Crowd();
+	Crowd*		crowd2 = new Crowd();
+
+	woah[0] = crowd1;
+	crowd2->SetCurrentX(1600.0f);
+	crowd2->SetPosition(1600, 0);
+	woah[1] = crowd2;
 }
 void Background::Update()
 {
-		
-
+	// Paralaxer
+	for (int i = 0; i < 3; i++)
+	{
+		if (there[i]->GetCurrentX() < -642)
+		{
+			there[i]->SetCurrentX(1284.0f);
+			there[i]->SetPosition(1284, LEVEL_OFFSET);
+		}
+	}
+	for (int i = 0; i < 2; i++)
+	{
+		if (woah[i]->GetCurrentX() < -1600)
+		{
+			woah[i]->SetCurrentX(1600.0f);
+			woah[i]->SetPosition(1600, LEVEL_OFFSET);
+		}
+	}
+	
 
 }
 void Background::LoadStartScreen()

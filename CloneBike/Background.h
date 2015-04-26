@@ -30,6 +30,7 @@ public:
 
 private:
 	double currentTime;
-	
+	BasicG *there[3];
+	Crowd *woah[2];
 };
 

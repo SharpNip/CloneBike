@@ -20,15 +20,21 @@
 #include "Gameplay.h"
 #include "HudOverlay.h"
 #include "Background.h"
+#include "Scorer.h"
 
 
 #ifndef BASE_SPEED
-#define BASESPEED 300
+#define BASESPEED 450
 #endif 
 
 #ifndef PLAYER_OFFSET 
 #define PLAYER_OFFSET 150
 #endif
+
+#ifndef MAX_JUMP 
+#define MAX_JUMP 150
+#endif 
+
 
 #ifndef HUD_POS
 #define HUD_POS 600

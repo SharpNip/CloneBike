@@ -13,10 +13,12 @@ Background::~Background()
 {
 	for (int i = 0; i < 3; ++i)
 	{
+		delete there[i];
 		there[i] = nullptr;
 	}
 	for (int i = 0; i < 2; ++i)
 	{
+		delete woah[i];
 		woah[i] = nullptr;
 	}
 
@@ -50,25 +52,25 @@ void Background::LoadLevel()
 	Textures->LoadTexture(Texture::ID::HudOverlay, "LevelRes/Hud.png");
 	Textures->LoadTexture(Texture::ID::Crowd, "LevelRes/Crowd.png");
 	
+
+	Crowd*		crowd1 = new Crowd();
+	Crowd*		crowd2 = new Crowd();
+	crowd2->SetCurrentX(1600.0f);
+	crowd2->SetPosition(1600, 0);
+	
 	BasicG*     basic1 = new BasicG();
 	BasicG*     basic2 = new BasicG();
 	BasicG*     basic3 = new BasicG();
-	there[0] = basic1;
-	there[1] = basic2;
-	there[2] = basic3;
-
 	basic2->SetCurrentX(642.0f);
 	basic2->SetPosition(642, LEVEL_OFFSET);
 	
 	basic3->SetCurrentX(1284.0f);
 	basic3->SetPosition(1284, LEVEL_OFFSET);
 
-	Crowd*		crowd1 = new Crowd();
-	Crowd*		crowd2 = new Crowd();
-
+	there[0] = basic1;
+	there[1] = basic2;
+	there[2] = basic3;
 	woah[0] = crowd1;
-	crowd2->SetCurrentX(1600.0f);
-	crowd2->SetPosition(1600, 0);
 	woah[1] = crowd2;
 }
 void Background::Update()

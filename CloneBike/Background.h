@@ -1,5 +1,7 @@
 #pragma once
-#include "Libraries.h"
+#include "Common.h"
+#include "BasicG.h"
+#include "Crowd.h"
 
 ///////////
 //Level

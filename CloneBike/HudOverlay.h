@@ -1,15 +1,20 @@
 #pragma once
-#include "Libraries.h"
+#include "Common.h"
+#include "Sprite.h"
+#include "Scorer.h"
+
 class HudOverlay :
 	public Sprite
 {
 public:
 	HudOverlay();
 	~HudOverlay();
+
+	void Update();
 private:
-	const int itemType;
 	float currentX;
 	float currentY;
 	float currentTime;
+	bool started;
 };
 

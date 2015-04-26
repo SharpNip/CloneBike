@@ -28,7 +28,6 @@ private:
 	//	Right   : Turns right (Down)
 
 	enum action { IDLE, STANDBY, DRIVE, ROLL, RUN, LEFT, RIGHT, JUMP };
-	enum airState { AMAZEBK, VERYBK, MUCHBK, SOMEBK, LILBK, FLAT, LILFWD, FWD , TOOFWD };
 	action currentAction;
 	void actionState(action newAction);
 
@@ -41,8 +40,9 @@ private:
 	bool isMoving;
 
 	float jumpHeight;
-	float speed;
+	float angle;
 	const int ON_GROUND;
+	float waiting;
 	
 	const int IDLE_NO_FRAMES()		   { return 1; }
 	const int DRIVE_NO_FRAMES()        { return 2; }

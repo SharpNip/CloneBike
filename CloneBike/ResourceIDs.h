@@ -54,7 +54,7 @@ namespace Font
 {
 	enum ID
 	{
-		Derp
+		Dialog
 	};
 }
 

@@ -6,12 +6,13 @@ Motorist::Motorist()
 	, currentAction(IDLE)
 	, jumpHeight(0)
 	, ON_GROUND(475)
-	, speed(0)
+	, angle(0)
 	, isJumping(false)
 	, isCrashed(false)
 	, isMoving(false)
 	, currentY(currentLane)
 	, currentLane(LANE_2)
+	, waiting(0)
 {
 
 	//Start the animation on creation
@@ -41,22 +42,6 @@ void Motorist::actionState(action newAction)
 			this->SetSrcPos(DRIVE_START_SRC());
 			this->SetNbFrame(DRIVE_NO_FRAMES());
 			this->SetFrameRate(ANIM_FAST_SPEED);
-			//if (this->GetCurrentY() < LANE_2)
-			//{
-			//	this->SetPosition(PLAYER_OFFSET, LANE_1);
-			//}
-			//else if (this->GetCurrentY() > LANE_2 &&
-			//	this->GetCurrentY() < LANE_3)
-			//{
-			//	this->SetPosition(PLAYER_OFFSET, LANE_2);
-			//}
-			//else if (this->GetCurrentY() > LANE_3 &&
-			//	this->GetCurrentY() < LANE_4)
-			//{
-			//	this->SetPosition(PLAYER_OFFSET, LANE_3);
-			//}
-			//else if (this->GetCurrentY() > LANE_2 &&
-			//	this->SetPosition(PLAYER_OFFSET, LANE_2);
 			break;
 		case ROLL:
 			this->SetSrcPos(ROLL_START_SRC());
@@ -135,93 +120,72 @@ void Motorist::Update()
 		}
 	}
 
-	//if (BUTTON->IsKeyHeld(SDL_SCANCODE_LEFT) &&
-	//	/*is on the ground*/	!isJumping)
-	//{
-	//	//actionState()
-	//}
-	//if (BUTTON->IsKeyHeld(SDL_SCANCODE_RIGHT) &&
-	//	/*is on the ground*/	!isJumping)
-	//{
-	//
-	//}
-	//if (BUTTON->IsKeyHeld(SDL_SCANCODE_LEFT) &&
-	//	/*is in the air*/		 isJumping)
-	//{
-	//	//actionState(JUMP);
-	//}
-	//if (BUTTON->IsKeyHeld(SDL_SCANCODE_RIGHT) &&
-	//	/*is in the air*/		 isJumping)
-	//{
-	//	//actionState(JUMP);
-	//}
-
-
 	//Press j for Drive
-	if (BUTTON->IsKeyHeld(SDL_SCANCODE_J)){
-		isMoving = true;
+	if (!isCrashed){
+		if (BUTTON->IsKeyHeld(SDL_SCANCODE_J)){
+			isMoving = true;
+		}
 	}
 	
-	//
-	////Press 2 for Rolling
-	//if (BUTTON->IsKeyPressed(SDL_SCANCODE_2)){
-	//	actionState(ROLL);
-	//}
-	////Press 3 for TurnLeft
-	//if (BUTTON->IsKeyPressed(SDL_SCANCODE_UP)){
-	//	actionState(LEFT);
-	//}
-	////Press 3 for TurnRight
-	//if (BUTTON->IsKeyPressed(SDL_SCANCODE_DOWN)){
-	//	actionState(RIGHT);
-	//}
-	//Button release for all non-incremental actions
 	if (BUTTON->IsKeyReleased(SDL_SCANCODE_DOWN) ||
 		BUTTON->IsKeyReleased(SDL_SCANCODE_UP) ||
 		BUTTON->IsKeyReleased(SDL_SCANCODE_J))
 	{
 		isMoving = false;
+		
 	}
 	
 	
 	
-	if (isMoving)
+	if (isMoving &&
+		!isCrashed)
 	{
-		if (speed < BASESPEED ||
-			speed <= 0)
+		if (BUTTON->IsKeyHeld(SDL_SCANCODE_LEFT))
 		{
-			speed += 30 * dt;
-			if (BUTTON->IsKeyHeld(SDL_SCANCODE_UP))
+			angle -= 30 * dt;
+			this->SetRotation(angle);
+			if (angle < -70)
 			{
-				actionState(LEFT);
+				isCrashed = true;
 			}
-			else if (BUTTON->IsKeyHeld(SDL_SCANCODE_DOWN))
-			{
-				actionState(RIGHT);
-			}
-			else
-			{
-				actionState(DRIVE);
-			}
+		}
+		else
+		{
+			this->SetRotation(0);
+			angle = 0;
+		}
+		if (BUTTON->IsKeyHeld(SDL_SCANCODE_UP))
+		{
+			actionState(LEFT);
+		}
+		else if (BUTTON->IsKeyHeld(SDL_SCANCODE_DOWN))
+		{
+			actionState(RIGHT);
+		}
+		else
+		{
+			actionState(DRIVE);
 		}
 	}
 	
-	
-	
-	
-	
-	if(isMoving == false)
+	if(isMoving == false &&
+		!isCrashed)
 	{
-		if (speed > 0)
+		actionState(IDLE);
+		this->SetRotation(0);
+		angle = 0;
+	}
+	if (isCrashed)
+	{
+		actionState(ROLL);
+		waiting += dt;
+		if (waiting >= 3)
 		{
-			speed -= 60 * dt;
-		}
-		if (speed <= 0)
-		{
+			isCrashed = false;
+			waiting = 0;
 			actionState(IDLE);
 		}
 	}
-
 	
 
 }

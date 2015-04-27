@@ -13,6 +13,9 @@ Motorist::Motorist()
 	, currentY(currentLane)
 	, currentLane(LANE_2)
 	, waiting(0)
+	, mBG(nullptr)
+	, mHud(nullptr)
+	, mObs(nullptr)
 {
 
 	//Start the animation on creation
@@ -22,10 +25,39 @@ Motorist::Motorist()
 	this->SetPosition(PLAYER_OFFSET, currentLane);
 	
 }
+Motorist::Motorist(Obstalces* obstacles, HudOverlay* hud, Background* backGround)
+	: Animation(Texture::ID::Motorist, IDLE_NO_FRAMES(), ANIM_FAST_SPEED, IDLE_START_SRC(), FRAME_SIZE())
+	, currentAction(IDLE)
+	, jumpHeight(0)
+	, ON_GROUND(475)
+	, angle(0)
+	, isJumping(false)
+	, isCrashed(false)
+	, isMoving(false)
+	, currentY(currentLane)
+	, currentLane(LANE_2)
+	, waiting(0)
+	, mBG(nullptr)
+	, mHud(nullptr)
+	, mObs(nullptr)
+{
+	this->Play();
+	this->SetIsLooping(true);
+	this->SetPosition(PLAYER_OFFSET, currentLane);
+	mObs = obstacles;
+	mHud = hud;
+	mBG = backGround;
 
+}
 
 Motorist::~Motorist()
 {
+	delete mObs;
+	delete mHud;
+	delete mBG;
+	mObs = nullptr;
+	mHud = nullptr;
+	mBG  = nullptr;
 }
 
 void Motorist::actionState(action newAction)
@@ -99,18 +131,12 @@ void Motorist::actionState(action newAction)
 		this->currentAction = newAction;
 		this->ResetCurrentFrame();
 	}
-
-	
-
 }
 void Motorist::Update()
 {
 	Animation::Update();
 	float dt = Engine::GetInstance()->GetTimer()->GetDeltaTime();
 
-
-	//Don't mind the brackets. Simply tried to save some screen space.
-	//Press Space to Pause & Resume
 	if (Engine::GetInstance()->GetInput()->IsKeyPressed(SDL_SCANCODE_SPACE)){
 		if (this->GetIsPlaying()){
 			this->Stop();
@@ -123,7 +149,7 @@ void Motorist::Update()
 	//Press j for Drive
 	if (!isCrashed){
 		if (BUTTON->IsKeyHeld(SDL_SCANCODE_J)){
-			isMoving = true;
+			this->Move();
 		}
 	}
 	
@@ -131,8 +157,7 @@ void Motorist::Update()
 		BUTTON->IsKeyReleased(SDL_SCANCODE_UP) ||
 		BUTTON->IsKeyReleased(SDL_SCANCODE_J))
 	{
-		isMoving = false;
-		
+		isMoving = false;	
 	}
 	
 	
@@ -177,6 +202,8 @@ void Motorist::Update()
 	}
 	if (isCrashed)
 	{
+		angle = 0;
+		this->SetRotation(angle);
 		actionState(ROLL);
 		waiting += dt;
 		if (waiting >= 3)
@@ -186,6 +213,12 @@ void Motorist::Update()
 			actionState(IDLE);
 		}
 	}
-	
+}
+
+void Motorist::Move()
+{
+	isMoving = true;
+	mObs->Move();
+	mBG->Move();
 
 }

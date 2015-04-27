@@ -8,7 +8,7 @@ Crowd::Crowd()
 	, currentY(0)
 	, currentTime(0)
 {
-	this->SetPosition(currentX, currentY);
+	this->SetPosition((int)currentX, (int)currentY);
 }
 
 
@@ -18,11 +18,11 @@ Crowd::~Crowd()
 
 void Crowd::Update()
 {
+	
+}
+void Crowd::Move()
+{
 	float dt = Engine::GetInstance()->GetTimer()->GetDeltaTime();
-
-	if (BUTTON->IsKeyHeld(SDL_SCANCODE_J))
-	{
-		currentX -= BASESPEED * dt;
-		this->SetPosition(currentX, 0);
-	}
+	currentX -= BASESPEED * dt;
+	this->SetPosition(currentX, 0);
 }

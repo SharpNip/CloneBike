@@ -24,6 +24,7 @@ public:
 	void LoadLevel();
 
 	void Update();
+	void Move();
 
 	
 

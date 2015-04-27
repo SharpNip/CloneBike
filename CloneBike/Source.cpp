@@ -2,6 +2,8 @@
 #include "HudOverlay.h"
 #include "Motorist.h"
 #include "StartScreen.h"
+#include "Libraries.h"
+#include "Obstalces.h"
 
 
 int main(int argc, char* args[])
@@ -11,7 +13,7 @@ int main(int argc, char* args[])
 
 	// Declaration of all objects
 	Musics->LoadMusic(Music::ID::Theme, "Theme.mp3");
-	Fonts->LoadFont(Font::ID::Derp, "TehFont.ttf", 28);
+	Fonts->LoadFont(Font::ID::Derp, "TehFont.ttf", 26);
 	Textures->LoadTexture(Texture::ID::Startscreen, "TitleScreen.png");
 	Textures->LoadTexture(Texture::ID::Motorist, "CharSheet.png");
 	Textures->LoadTexture(Texture::ID::Background, "Background.png");
@@ -26,7 +28,8 @@ int main(int argc, char* args[])
 
 	Background*  background = new Background();
 	HudOverlay*  hud        = new HudOverlay();
-	Motorist*    motorist   = new Motorist();
+	Obstalces*   obstacles  = new Obstalces();
+	Motorist*    motorist   = new Motorist(obstacles, hud, background);
 	StartScreen* title      = new StartScreen();
 	
 	// Run the engin

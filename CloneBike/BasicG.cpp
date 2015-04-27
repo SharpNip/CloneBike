@@ -18,11 +18,10 @@ BasicG::~BasicG()
 
 void BasicG::Update()
 {
+}
+void BasicG::Move()
+{
 	float dt = Engine::GetInstance()->GetTimer()->GetDeltaTime();
-
-	if (BUTTON->IsKeyHeld(SDL_SCANCODE_J))
-	{
-		currentX -= BASESPEED * dt;
-		this->SetPosition(currentX, LEVEL_OFFSET);
-	}
+	currentX -= BASESPEED * dt;
+	this->SetPosition(currentX, LEVEL_OFFSET);
 }

@@ -34,15 +34,13 @@ void Scorer::Update()
 
 		dec = (temp2 - temp) * 100;
 		
+		sec = (int)dt;
+		mm = (int)dt / 60;
 		
-		sec = dt;
-
-		if (sec = 60)
+		if (sec > 59)
 		{
 			sec -= 60;
-			mm++;
 		}
-		
 		UpdateTimer(mm, sec, dec);
 	}
 }

@@ -2,7 +2,7 @@
 #include "Common.h"
 #include "Sprite.h"
 #include "Jump1.h"
-#include "Jump2.h"
+#include "SuperJump.h"
 
 
 class Motorist;
@@ -17,11 +17,20 @@ public:
 	~Obstalces();
 	int FindItem();
 	int GetX();
-
+	int GetLane();
+	void Move();
 	void Update();
 
 private:
-	Jump1* obstalceArray[3];
+	SuperJump* obstalceSupArray[3];
+	SuperJump* supJump1;
+	SuperJump* supJump2;
+	SuperJump* supJump3;
+	Jump1*	   obstalceArray[3];
+	Jump1*	   jump1;
+	Jump1*	   jump2;
+	Jump1*	   jump3;
+
 
 };
 

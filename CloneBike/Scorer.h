@@ -18,6 +18,5 @@ public:
 private:
 	bool launch;
 	int mm, sec, dec;
-
 };
 

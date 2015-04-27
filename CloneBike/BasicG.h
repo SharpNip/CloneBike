@@ -11,6 +11,7 @@ public:
 	void Update();
 	float GetCurrentX() const { return currentX; }
 	void SetCurrentX(float point){ this->currentX = point; }
+	void Move();
 
 
 private:

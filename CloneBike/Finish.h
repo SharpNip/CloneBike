@@ -1,6 +1,7 @@
 #pragma once
 #include "Common.h"
 #include "Sprite.h"
+#include "Libraries.h"
 
 class Finish:
 	public Sprite
@@ -8,6 +9,7 @@ class Finish:
 public:
 	Finish();
 	~Finish();
+	void Move();
 
 private:
 	const int itemType;

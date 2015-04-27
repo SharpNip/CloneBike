@@ -4,6 +4,16 @@
 Background::Background()
 	: currentTime(0)
 {
+	crowd1 = new Crowd();
+	crowd2 = new Crowd();
+	basic1 = new BasicG();
+	basic2 = new BasicG();
+	basic3 = new BasicG();
+	there[0] = basic1;
+	there[1] = basic2;
+	there[2] = basic3;
+	woah[0] = crowd1;
+	woah[1] = crowd2;
 	LoadLevel();
 
 }
@@ -11,32 +21,24 @@ Background::Background()
 
 Background::~Background()
 {
-	for (int i = 0; i < 3; ++i)
-	{
-		delete there[i];
-		there[i] = nullptr;
-	}
-	for (int i = 0; i < 2; ++i)
-	{
-		delete woah[i];
-		woah[i] = nullptr;
-	}
-	
+	delete crowd1;
+	delete crowd2;
+	delete basic1;
+	delete basic2;
+	delete basic3;
+
+	crowd1   = nullptr;
+	crowd2   = nullptr;
+	basic1   = nullptr;
+	basic2   = nullptr;
+	basic3   = nullptr;
 }
 
 void Background::LoadLevel()
 {	
-	crowd1 = new Crowd();
-	crowd2 = new Crowd();
-	basic1 = new BasicG();
-	basic2 = new BasicG();
-	basic3 = new BasicG();
-	
-
 	
 	crowd2->SetCurrentX(1600.0f);
 	crowd2->SetPosition(1600, 0);
-	
 
 	basic2->SetCurrentX(642.0f);
 	basic2->SetPosition(642, LEVEL_OFFSET);
@@ -44,11 +46,7 @@ void Background::LoadLevel()
 	basic3->SetCurrentX(1284.0f);
 	basic3->SetPosition(1284, LEVEL_OFFSET);
 
-	there[0] = basic1;
-	there[1] = basic2;
-	there[2] = basic3;
-	woah[0] = crowd1;
-	woah[1] = crowd2;
+	
 }
 void Background::Update()
 {
@@ -69,6 +67,16 @@ void Background::Update()
 			woah[i]->SetPosition(1600, LEVEL_OFFSET);
 		}
 	}
-	
+}
 
+void Background::Move()
+{
+	for (int i = 0; i < 3; i++)
+	{
+		there[i]->Move();	
+	}
+	for (int i = 0; i < 2; i++)
+	{
+		woah[i]->Move();
+	}
 }

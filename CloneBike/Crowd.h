@@ -12,6 +12,7 @@ public:
 	float GetCurrentX(){ return currentX; }
 	void SetCurrentX(float point){ this->currentX = point; }
 	void Update();
+	void Move();
 
 private:
 	const int itemType;

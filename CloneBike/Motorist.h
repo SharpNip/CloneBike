@@ -1,8 +1,9 @@
 #pragma once
-
 #include "Common.h"
-#include "Animation.h"
-
+#include "Libraries.h"
+#include "Background.h"
+#include "Obstalces.h"
+#include "HudOverlay.h"
 
 //Sheet for the character
 #define MOTORIST_PATH "CharSheet.png" 
@@ -13,6 +14,7 @@ class Motorist :
 
 public:
 	Motorist();
+	Motorist(Obstalces* obstacles, HudOverlay* hud, Background* backGround);
 	~Motorist();
 	
 	
@@ -44,6 +46,10 @@ private:
 	const int ON_GROUND;
 	float waiting;
 	
+	Background* mBG;
+	HudOverlay* mHud;
+	Obstalces*  mObs;
+
 	const int IDLE_NO_FRAMES()		   { return 1; }
 	const int DRIVE_NO_FRAMES()        { return 2; }
 	const int ROLL_NO_FRAMES()         { return 11; }
@@ -61,6 +67,8 @@ protected:
 	void SetLane(int lane)        { currentLane = lane; }
 	int GetCurrentLane() const    { return currentLane; }
 	int GetCurrentY() const       { return currentY; }
+	void Move();
+
 
 };
 

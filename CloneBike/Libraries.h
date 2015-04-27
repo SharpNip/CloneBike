@@ -4,6 +4,7 @@
 #include "Text.h"
 #include "Audio.h"
 #include "ResourceIDs.h"
+#include "Animation.h"
 
 
 

@@ -10,7 +10,6 @@ HudOverlay::HudOverlay()
 {
 	this->SetPosition(0, HUD_POS);
 	scorer = new Scorer();
-
 }
 
 
@@ -20,10 +19,12 @@ HudOverlay::~HudOverlay()
 void HudOverlay::Update()
 {
 	float delta = Engine::GetInstance()->GetTimer()->GetDeltaTime();
-
-	if (BUTTON->IsKeyReleased(SDL_SCANCODE_G))
+	if (!started)
 	{
-		started = true;
-		scorer->Start();
+		if (BUTTON->IsKeyReleased(SDL_SCANCODE_G))
+		{
+			started = true;
+			scorer->Start();
+		}
 	}
 }

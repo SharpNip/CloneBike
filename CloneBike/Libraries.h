@@ -5,15 +5,6 @@
 #include "Audio.h"
 #include "ResourceIDs.h"
 
-#include "Theme.h"
-#include "BasicG.h"
-#include "Crowd.h"
-#include "Motorist.h"
-#include "Obstalces.h"
-#include "HudOverlay.h"
-#include "Background.h"
-#include "Scorer.h"
-#include "StartScreen.h"
 
 
 #ifndef BASE_SPEED

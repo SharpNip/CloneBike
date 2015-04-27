@@ -7,11 +7,14 @@ StartScreen::StartScreen()
 {
 	this->SetPosition(0, 0);
 	song = new Theme();
+	
 }
 
 
 StartScreen::~StartScreen()
 {
+
+
 }
 void StartScreen::Update()
 {
@@ -24,8 +27,6 @@ void StartScreen::Update()
 void StartScreen::Kill()
 {
 	song->Stop();
-	//this->SetPosition(0, 900);
-
-	Scorer *scorer = new Scorer();
-	scorer->SetLaunch(true);
+	this->SetPosition(0, 900);	 
+	
 }

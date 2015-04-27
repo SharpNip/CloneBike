@@ -1,8 +1,9 @@
 #pragma once
 
 #include "Common.h"
-#include "Sprite.h"
 #include "Libraries.h"
+#include "Theme.h"
+#include "Scorer.h"
 
 class StartScreen:
 	public Sprite

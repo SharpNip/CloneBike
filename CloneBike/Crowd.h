@@ -1,5 +1,7 @@
 #pragma once
+#include "Common.h"
 #include "Libraries.h"
+
 class Crowd :
 	public Sprite
 {

@@ -5,10 +5,11 @@ HudOverlay::HudOverlay()
 	: Sprite(Texture::ID::HudOverlay)
 	, currentX(0)
 	, currentY(0)
-	, currentTime(0)
 	, started(false)
+	, scorer(nullptr)
 {
 	this->SetPosition(0, HUD_POS);
+	scorer = new Scorer();
 
 }
 
@@ -20,14 +21,9 @@ void HudOverlay::Update()
 {
 	float delta = Engine::GetInstance()->GetTimer()->GetDeltaTime();
 
-	if (BUTTON->IsKeyPressed(SDL_SCANCODE_J))
+	if (BUTTON->IsKeyReleased(SDL_SCANCODE_G))
 	{
 		started = true;
+		scorer->Start();
 	}
-
-	if (started)
-	{
-		currentTime += delta;
-	}
-
 }

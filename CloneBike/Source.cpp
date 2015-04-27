@@ -1,39 +1,33 @@
-#include "Libraries.h"
+#include "Background.h"
+#include "HudOverlay.h"
+#include "Motorist.h"
+#include "StartScreen.h"
 
 
 int main(int argc, char* args[])
 {
-//	bool gameStart = false;
 	// Get the engin instance
 	Engine::GetInstance()->Init(800, 750);
-	// Declaration of all objects
-	//StartScreen *screen = new StartScreen();
-//	if (BUTTON->IsKeyPressed(SDL_SCANCODE_RETURN))
-//{
-		
-//	}
-//if (gameStart)
-//	{
-//		Gameplay *game = new Gameplay();
-		
 
-	//}
+	// Declaration of all objects
 	Musics->LoadMusic(Music::ID::Theme, "Theme.mp3");
 	Fonts->LoadFont(Font::ID::Derp, "TehFont.ttf", 28);
 	Textures->LoadTexture(Texture::ID::Startscreen, "TitleScreen.png");
+	Textures->LoadTexture(Texture::ID::Motorist, "CharSheet.png");
+	Textures->LoadTexture(Texture::ID::Background, "Background.png");
+	Textures->LoadTexture(Texture::ID::Jump1, "LevelRes/Jump1.png");
+	Textures->LoadTexture(Texture::ID::Jump2, "LevelRes/Jump2.png");
+	Textures->LoadTexture(Texture::ID::SuperJump, "LevelRes/SuperJump.png");
+	Textures->LoadTexture(Texture::ID::Finish, "LevelRes/Finish.png");
+	Textures->LoadTexture(Texture::ID::BasicG, "LevelRes/Basic.png");
+	Textures->LoadTexture(Texture::ID::HudOverlay, "LevelRes/Hud.png");
+	Textures->LoadTexture(Texture::ID::Crowd, "LevelRes/Crowd.png");
 	
-	
-	Background* background = new Background();
-	HudOverlay* hud      = new HudOverlay();
-	Motorist*   motorist = new Motorist();
-	//Scorer*		scorer = new Scorer();
-	StartScreen* title = new StartScreen();
 
-
-
-	
-	
-	
+	Background*  background = new Background();
+	HudOverlay*  hud        = new HudOverlay();
+	Motorist*    motorist   = new Motorist();
+	StartScreen* title      = new StartScreen();
 	
 	// Run the engin
 	Engine::GetInstance()->Run();

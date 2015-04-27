@@ -14,7 +14,7 @@ public:
 private:
 	float currentX;
 	float currentY;
-	float currentTime;
 	bool started;
+	Scorer* scorer;
 };
 

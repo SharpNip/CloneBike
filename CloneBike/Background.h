@@ -19,10 +19,8 @@ class Background :
 {
 public:
 	Background();
-	Background(float bs, float ss);
 	~Background();
 
-	void LoadStartScreen();
 	void LoadLevel();
 
 	void Update();
@@ -31,7 +29,15 @@ public:
 
 private:
 	double currentTime;
-	BasicG *there[3];
-	Crowd *woah[2];
+	BasicG* there[3];
+	Crowd*  woah[2];
+	Crowd*	crowd1;
+	Crowd*	crowd2;
+	BasicG* basic1;
+	BasicG* basic2;
+	BasicG* basic3;
+
+
+
 };
 

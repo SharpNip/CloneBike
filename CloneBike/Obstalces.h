@@ -20,11 +20,13 @@ class Obstalces :
 public:
 	Obstalces();
 	~Obstalces();
+	int FindItem();
+	int GetX();
 
 	void Update();
 
 private:
-	Sprite* obstalceArray[3];
+	Jump1* obstalceArray[3];
 
 };
 

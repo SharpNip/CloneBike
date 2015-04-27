@@ -2,9 +2,14 @@
 #include "Libraries.h"
 
 Scorer::Scorer()
-	:Text("Dolls are for overgrown dogs, not for trees.", Font::ID::Dialog, 700)
+	:Text("0:00:00", Font::ID::Derp, 700)
+	, launch(false)
+	, mm(0)
+	, sec(0)
+	, dec(0.0f)
 {
-	SetPosition(100, 500);
+	this->SetColor(Color::WHITE);
+	this->SetPosition(560, 650);
 }
 
 Scorer::~Scorer()
@@ -13,54 +18,35 @@ Scorer::~Scorer()
 
 void Scorer::Start()
 {
+	
 }
 
 void Scorer::Update()
 {
 	Text::Update();
-	if (Engine::GetInstance()->GetInput()->IsKeyPressed(SDL_SCANCODE_F1))
+
+	if (launch)
 	{
-		this->SetColor(Color::RED);
-		this->SetOptions(Options::OpFadeIn);
-	}
-	if (Engine::GetInstance()->GetInput()->IsKeyPressed(SDL_SCANCODE_F2))
-	{
-		this->SetColor(Color::BLUE);
-		this->SetOptions(Options::OpFadeOut);
-	}
-	if (Engine::GetInstance()->GetInput()->IsKeyPressed(SDL_SCANCODE_F3))
-	{
-		this->SetColor(Color::YELLOW);
-		this->SetOptions(Options::OpFlashing);
-	}
-	if (Engine::GetInstance()->GetInput()->IsKeyPressed(SDL_SCANCODE_F4))
-	{
-		this->SetColor(Color::GREEN);
-		this->SetOptions(Options::OpTypewriter);
-	}
-	if (Engine::GetInstance()->GetInput()->IsKeyPressed(SDL_SCANCODE_F5))
-	{
-		this->SetColor(Color::WHITE);
-		this->SetOptions(Options::OpFlashing | Options::OpTypewriter);
-	}
-	if (Engine::GetInstance()->GetInput()->IsKeyPressed(SDL_SCANCODE_F6))
-	{
-		this->Scale(1);
-	}
-	if (Engine::GetInstance()->GetInput()->IsKeyPressed(SDL_SCANCODE_F7))
-	{
-		this->Scale(0.75);
-	}
-	if (Engine::GetInstance()->GetInput()->IsKeyPressed(SDL_SCANCODE_F8))
-	{
-		this->SetText("Short dogs are more likely to survive in the wild");
-	}
-	if (Engine::GetInstance()->GetInput()->IsKeyPressed(SDL_SCANCODE_F9))
-	{
-		this->SetText("Never gamble with your giraffe's neck, it'll turn into bread crumbs for the sinful pigeons.");
+		float dt = Engine::GetInstance()->GetTimer()->GetGameTime();
+
+		dec = dt;
+
+		if (dec > 1.0f)
+		{
+			dec = 0;
+		}
+		sec = dt;
+		mm = sec / 60;
+		UpdateTimer(mm, sec, dec);
+
 	}
 }
 
 void Scorer::Stop()
 {
+}
+
+void Scorer::UpdateTimer(int min, int ss, float dd)
+{
+	this->SetText(std::to_string(mm) + ':' + std::to_string(sec) + ':' + std::to_string(dec));
 }

@@ -1,6 +1,6 @@
 #pragma once
 #include "Common.h"
-#include "Sprite.h"
+#include "Obstalces.h"
 #include "ResourceIDs.h"
 
 
@@ -13,8 +13,8 @@ public:
 
 	void Update();
 	void SetPosition(point<int> point) { this->currentX = point.x; this->currentY = point.y; }
+	void SetPosition(int xCoord, int yCoord) { currentX = xCoord; currentY = yCoord; }
 	int GetCurrentX() const { return currentX; }
-
 	int GetItemType() const { return itemType; }
 
 

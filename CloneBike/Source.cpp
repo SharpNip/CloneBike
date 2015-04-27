@@ -18,10 +18,17 @@ int main(int argc, char* args[])
 		
 
 	//}
-
+	Musics->LoadMusic(Music::ID::Theme, "Theme.mp3");
+	Fonts->LoadFont(Font::ID::Derp, "TehFont.ttf", 28);
+	Textures->LoadTexture(Texture::ID::Startscreen, "TitleScreen.png");
+	
+	
 	Background* background = new Background();
 	HudOverlay* hud      = new HudOverlay();
 	Motorist*   motorist = new Motorist();
+	//Scorer*		scorer = new Scorer();
+	StartScreen* title = new StartScreen();
+
 
 
 	

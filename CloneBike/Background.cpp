@@ -21,7 +21,7 @@ Background::~Background()
 		delete woah[i];
 		woah[i] = nullptr;
 	}
-
+	
 }
 
 void Background::LoadLevel()

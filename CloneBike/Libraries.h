@@ -5,7 +5,7 @@
 #include "Audio.h"
 #include "ResourceIDs.h"
 
-
+#include "Theme.h"
 #include "BasicG.h"
 #include "Crowd.h"
 #include "Motorist.h"
@@ -13,6 +13,7 @@
 #include "HudOverlay.h"
 #include "Background.h"
 #include "Scorer.h"
+#include "StartScreen.h"
 
 
 #ifndef BASE_SPEED
@@ -55,4 +56,8 @@
 
 #ifndef BUTTON
 #define BUTTON Engine::GetInstance()->GetInput()
+#endif
+
+#ifndef BUTTON_START
+#define BUTTON_START Engine::GetInstance()->GetInput()->IsKeyPressed(SDL_SCANCODE_G)
 #endif

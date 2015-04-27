@@ -79,71 +79,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AllGrass.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="BasicG.cpp" />
-    <ClCompile Include="BotBlocker.cpp" />
-    <ClCompile Include="BotGrass.cpp" />
-    <ClCompile Include="BotSpeeder.cpp" />
     <ClCompile Include="Crowd.cpp" />
     <ClCompile Include="Finish.cpp" />
     <ClCompile Include="Obstalces.cpp" />
     <ClCompile Include="HudOverlay.cpp" />
     <ClCompile Include="Jump1.cpp" />
-    <ClCompile Include="Jump2.cpp" />
-    <ClCompile Include="Jump3.cpp" />
-    <ClCompile Include="Jump4.cpp" />
-    <ClCompile Include="Jump5.cpp" />
-    <ClCompile Include="Jump6.cpp" />
-    <ClCompile Include="Jump7.cpp" />
     <ClCompile Include="Motorist.cpp" />
-    <ClCompile Include="Mountain.cpp" />
-    <ClCompile Include="Overpass.cpp" />
-    <ClCompile Include="Ship.cpp" />
     <ClCompile Include="Scorer.cpp" />
-    <ClCompile Include="TopSlower.cpp" />
-    <ClCompile Include="BotSlower.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="StartScreen.cpp" />
-    <ClCompile Include="SuperJump.cpp" />
     <ClCompile Include="Theme.cpp" />
-    <ClCompile Include="TopBlocker.cpp" />
-    <ClCompile Include="TopGrass.cpp" />
-    <ClCompile Include="TopSpeeder.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AllGrass.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="BasicG.h" />
-    <ClInclude Include="BotBlocker.h" />
-    <ClInclude Include="BotGrass.h" />
-    <ClInclude Include="BotSpeeder.h" />
     <ClInclude Include="Crowd.h" />
     <ClInclude Include="Finish.h" />
     <ClInclude Include="Obstalces.h" />
     <ClInclude Include="HudOverlay.h" />
     <ClInclude Include="Jump1.h" />
-    <ClInclude Include="Jump2.h" />
-    <ClInclude Include="Jump3.h" />
-    <ClInclude Include="Jump4.h" />
-    <ClInclude Include="Jump5.h" />
-    <ClInclude Include="Jump6.h" />
-    <ClInclude Include="Jump7.h" />
     <ClInclude Include="Libraries.h" />
     <ClInclude Include="Motorist.h" />
-    <ClInclude Include="Mountain.h" />
-    <ClInclude Include="Overpass.h" />
     <ClInclude Include="ResourceIDs.h" />
-    <ClInclude Include="Ship.h" />
     <ClInclude Include="Scorer.h" />
-    <ClInclude Include="TopSlower.h" />
-    <ClInclude Include="BotSlower.h" />
     <ClInclude Include="StartScreen.h" />
-    <ClInclude Include="SuperJump.h" />
     <ClInclude Include="Theme.h" />
-    <ClInclude Include="TopBlocker.h" />
-    <ClInclude Include="TopGrass.h" />
-    <ClInclude Include="TopSpeeder.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\bart-sdl-engine-h15\src\Core\Core.vcxproj">

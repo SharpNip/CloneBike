@@ -19,7 +19,6 @@ Motorist::Motorist()
 	this->Play();
 	//Make it loop
 	this->SetIsLooping(true);	
-
 	this->SetPosition(PLAYER_OFFSET, currentLane);
 	
 }

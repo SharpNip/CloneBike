@@ -18,7 +18,6 @@ int main(int argc, char* args[])
 	Textures->LoadTexture(Texture::ID::Motorist, "CharSheet.png");
 	Textures->LoadTexture(Texture::ID::Background, "Background.png");
 	Textures->LoadTexture(Texture::ID::Jump1, "LevelRes/Jump1.png");
-	Textures->LoadTexture(Texture::ID::Jump2, "LevelRes/Jump2.png");
 	Textures->LoadTexture(Texture::ID::SuperJump, "LevelRes/SuperJump.png");
 	Textures->LoadTexture(Texture::ID::Finish, "LevelRes/Finish.png");
 	Textures->LoadTexture(Texture::ID::BasicG, "LevelRes/Basic.png");

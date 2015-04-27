@@ -2,14 +2,13 @@
 
 
 SuperJump::SuperJump()
-	: itemType(0)
+	: Sprite(Texture::ID::SuperJump)
+	, itemType(0)
 	, currentX(0)
 	, currentY(0)
 	, currentTime(0)
 {
 }
-
-
 SuperJump::~SuperJump()
 {
 }

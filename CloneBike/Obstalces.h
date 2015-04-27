@@ -3,6 +3,7 @@
 #include "Sprite.h"
 #include "Jump1.h"
 #include "SuperJump.h"
+#include "Finish.h"
 
 
 class Motorist;
@@ -30,7 +31,6 @@ private:
 	Jump1*	   jump1;
 	Jump1*	   jump2;
 	Jump1*	   jump3;
-
-
+	Finish*    finish;
 };
 

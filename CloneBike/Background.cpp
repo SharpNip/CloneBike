@@ -17,8 +17,6 @@ Background::Background()
 	LoadLevel();
 
 }
-
-
 Background::~Background()
 {
 	delete crowd1;
@@ -33,10 +31,8 @@ Background::~Background()
 	basic2   = nullptr;
 	basic3   = nullptr;
 }
-
 void Background::LoadLevel()
 {	
-	
 	crowd2->SetCurrentX(1600.0f);
 	crowd2->SetPosition(1600, 0);
 
@@ -45,8 +41,6 @@ void Background::LoadLevel()
 	
 	basic3->SetCurrentX(1284.0f);
 	basic3->SetPosition(1284, LEVEL_OFFSET);
-
-	
 }
 void Background::Update()
 {
@@ -68,7 +62,6 @@ void Background::Update()
 		}
 	}
 }
-
 void Background::Move()
 {
 	for (int i = 0; i < 3; i++)

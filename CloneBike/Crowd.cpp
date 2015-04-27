@@ -24,5 +24,5 @@ void Crowd::Move()
 {
 	float dt = Engine::GetInstance()->GetTimer()->GetDeltaTime();
 	currentX -= BASESPEED * dt;
-	this->SetPosition(currentX, 0);
+	this->SetPosition((int)currentX, 0);
 }

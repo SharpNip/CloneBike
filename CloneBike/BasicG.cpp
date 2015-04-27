@@ -23,5 +23,5 @@ void BasicG::Move()
 {
 	float dt = Engine::GetInstance()->GetTimer()->GetDeltaTime();
 	currentX -= BASESPEED * dt;
-	this->SetPosition(currentX, LEVEL_OFFSET);
+	this->SetPosition((int)currentX, LEVEL_OFFSET);
 }

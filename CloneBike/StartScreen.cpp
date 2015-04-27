@@ -24,7 +24,8 @@ void StartScreen::Update()
 void StartScreen::Kill()
 {
 	song->Stop();
-	this->SetPosition(0, 900);
+	//this->SetPosition(0, 900);
+
 	Scorer *scorer = new Scorer();
 	scorer->SetLaunch(true);
 }

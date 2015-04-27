@@ -1,7 +1,6 @@
 #pragma once
 #include "Common.h"
-#include "Obstalces.h"
-#include "ResourceIDs.h"
+#include "Libraries.h"
 
 
 class Jump1 :

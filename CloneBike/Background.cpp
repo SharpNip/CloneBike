@@ -2,7 +2,11 @@
 
 
 Background::Background()
-	: currentTime(0)
+	: crowd1(nullptr)
+	, crowd2(nullptr)
+	, basic1(nullptr)
+	, basic2(nullptr)
+	, basic3(nullptr)
 {
 	crowd1 = new Crowd();
 	crowd2 = new Crowd();
@@ -62,14 +66,14 @@ void Background::Update()
 		}
 	}
 }
-void Background::Move()
+void Background::Move(int speed)
 {
 	for (int i = 0; i < 3; i++)
 	{
-		there[i]->Move();	
+		there[i]->Move(speed);	
 	}
 	for (int i = 0; i < 2; i++)
 	{
-		woah[i]->Move();
+		woah[i]->Move(speed);
 	}
 }

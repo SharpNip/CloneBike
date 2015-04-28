@@ -10,20 +10,16 @@ Motorist::Motorist()
 	, isJumping(false)
 	, isCrashed(false)
 	, isMoving(false)
+	, isFalling(false)
 	, currentY(currentLane)
 	, currentLane(LANE_2)
 	, waiting(0)
+	, regSpeed(0)
+	, crashedSpeed(200)
 	, mBG(nullptr)
 	, mHud(nullptr)
 	, mObs(nullptr)
-{
-
-	//Start the animation on creation
-	this->Play();
-	//Make it loop
-	this->SetIsLooping(true);	
-	this->SetPosition(PLAYER_OFFSET, currentLane);
-	
+{	
 }
 Motorist::Motorist(Obstalces* obstacles, HudOverlay* hud, Background* backGround)
 	: Animation(Texture::ID::Motorist, IDLE_NO_FRAMES(), ANIM_FAST_SPEED, IDLE_START_SRC(), FRAME_SIZE())
@@ -34,9 +30,12 @@ Motorist::Motorist(Obstalces* obstacles, HudOverlay* hud, Background* backGround
 	, isJumping(false)
 	, isCrashed(false)
 	, isMoving(false)
+	, isFalling(false)
 	, currentY(currentLane)
 	, currentLane(LANE_2)
 	, waiting(0)
+	, regSpeed(0)
+	, crashedSpeed(200)
 	, mBG(nullptr)
 	, mHud(nullptr)
 	, mObs(nullptr)
@@ -49,7 +48,6 @@ Motorist::Motorist(Obstalces* obstacles, HudOverlay* hud, Background* backGround
 	mBG = backGround;
 
 }
-
 Motorist::~Motorist()
 {
 	delete mObs;
@@ -59,7 +57,6 @@ Motorist::~Motorist()
 	mHud = nullptr;
 	mBG  = nullptr;
 }
-
 void Motorist::actionState(action newAction)
 {
 	if (this->currentAction != newAction)
@@ -79,6 +76,7 @@ void Motorist::actionState(action newAction)
 			this->SetSrcPos(ROLL_START_SRC());
 			this->SetNbFrame(ROLL_NO_FRAMES());
 			this->SetFrameRate(ANIM_FAST_SPEED);
+			AudioSys->PlaySound(Sounds->Get(Sound::ID::Rolling));
 			break;
 			// turn to go up 1 lane
 		case LEFT:
@@ -100,14 +98,10 @@ void Motorist::actionState(action newAction)
 				this->SetPosition(PLAYER_OFFSET, LANE_1);
 			}
 			break;
-			// turn to go down 1 lane
+			
 		case RIGHT:
 			this->SetSrcPos(TURNR_START_SRC());
 			this->SetNbFrame(TURNR_NO_FRAMES());
-
-			/* use delta time here to have movement variation
-			*/
-
 			if (this->GetCurrentLane() == LANE_1)
 			{
 				this->SetLane(LANE_2);
@@ -124,6 +118,9 @@ void Motorist::actionState(action newAction)
 				this->SetPosition(PLAYER_OFFSET, LANE_4);
 			}
 			break;
+		case JUMP:
+			AudioSys->PlaySound(Sounds->Get(Sound::ID::Jump));
+			this->SetRotation(-50);
 		default:
 			break;
 		}
@@ -136,39 +133,32 @@ void Motorist::Update()
 {
 	Animation::Update();
 	float dt = Engine::GetInstance()->GetTimer()->GetDeltaTime();
-
-	if (Engine::GetInstance()->GetInput()->IsKeyPressed(SDL_SCANCODE_SPACE)){
-		if (this->GetIsPlaying()){
-			this->Stop();
-		}
-		else {
-			this->Play();
-		}
-	}
-
-	//Press j for Drive
-	if (!isCrashed){
-		if (BUTTON->IsKeyHeld(SDL_SCANCODE_J)){
-			this->Move();
-		}
-	}
 	
+	//Press j for Drive
+	if (!isCrashed)
+	{
+		if (BUTTON->IsKeyHeld(SDL_SCANCODE_J))
+		{
+			this->Move();
+			if (regSpeed < BASESPEED)
+			{
+				regSpeed += dt * 120;
+			}
+		}
+	}	
 	if (BUTTON->IsKeyReleased(SDL_SCANCODE_DOWN) ||
 		BUTTON->IsKeyReleased(SDL_SCANCODE_UP) ||
-		BUTTON->IsKeyReleased(SDL_SCANCODE_J))
+		BUTTON->IsKeyReleased(SDL_SCANCODE_J))	
 	{
 		isMoving = false;	
-	}
-	
-	
-	
+	}	
 	if (isMoving &&
-		!isCrashed)
-	{
+		!isCrashed)	{
 		if (BUTTON->IsKeyHeld(SDL_SCANCODE_LEFT))
 		{
 			angle -= 30 * dt;
 			this->SetRotation(angle);
+
 			if (angle < -70)
 			{
 				isCrashed = true;
@@ -179,7 +169,7 @@ void Motorist::Update()
 			this->SetRotation(0);
 			angle = 0;
 		}
-		if (BUTTON->IsKeyHeld(SDL_SCANCODE_UP))
+		if (BUTTON->IsKeyHeld(SDL_SCANCODE_UP))	
 		{
 			actionState(LEFT);
 		}
@@ -193,19 +183,23 @@ void Motorist::Update()
 		}
 	}
 	
-	if(isMoving == false &&
-		!isCrashed)
+	if(isMoving == false &&	!isCrashed)	
 	{
 		actionState(IDLE);
 		this->SetRotation(0);
 		angle = 0;
+		regSpeed = 0;
 	}
-	if (isCrashed)
+	if (isCrashed)	
 	{
 		angle = 0;
 		this->SetRotation(angle);
 		actionState(ROLL);
 		waiting += dt;
+		regSpeed = 0;
+		mObs->Move(crashedSpeed);
+		mBG->Move(crashedSpeed);
+
 		if (waiting >= 3)
 		{
 			isCrashed = false;
@@ -213,12 +207,23 @@ void Motorist::Update()
 			actionState(IDLE);
 		}
 	}
-}
+	if (mObs->GetX() == PLAYER_OFFSET)
+	{
+		isJumping = true;
+	}
 
+	if (isJumping)
+	{
+		if (this->currentY > MAX_JUMP)
+		{
+			this->currentY += (int)regSpeed;
+		}
+	}
+
+}
 void Motorist::Move()
 {
 	isMoving = true;
-	mObs->Move();
-	mBG->Move();
-
+	mObs->Move((int)regSpeed);
+	mBG->Move((int)regSpeed);
 }

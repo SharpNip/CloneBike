@@ -6,8 +6,6 @@
 #include "ResourceIDs.h"
 #include "Animation.h"
 
-
-
 #ifndef BASE_SPEED
 #define BASESPEED 450
 #endif 
@@ -20,14 +18,16 @@
 #define MAX_JUMP 150
 #endif 
 
-
 #ifndef HUD_POS
 #define HUD_POS 600
 #endif
 
-
 #ifndef LEVEL_OFFSET 
 #define LEVEL_OFFSET 400
+#endif
+
+#ifndef OBS_OFFSET 
+#define OBS_OFFSET 410
 #endif
 
 #ifndef LANE_1
@@ -45,11 +45,11 @@
 #ifndef LANE_4
 #define LANE_4 470
 #endif
-
+// Shortcut to get input
 #ifndef BUTTON
 #define BUTTON Engine::GetInstance()->GetInput()
 #endif
-
+// Shortcut for a Star Button
 #ifndef BUTTON_START
 #define BUTTON_START Engine::GetInstance()->GetInput()->IsKeyPressed(SDL_SCANCODE_G)
 #endif

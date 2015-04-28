@@ -1,6 +1,9 @@
 #ifndef ResourceIDs
 #define ResourceIDs
 
+///////////////////////////////////////////////////////////////////////////
+// This header is used to "store" all of the game assest using a simple ID
+///////////////////////////////////////////////////////////////////////////
 namespace Texture
 {
 	enum ID
@@ -10,7 +13,6 @@ namespace Texture
 		HudOverlay,
 		Startscreen,
 		Jump1,
-		SuperJump,
 		Finish,
 		BasicG,
 		Crowd
@@ -21,7 +23,6 @@ namespace Sound
 {
 	enum ID
 	{
-		Motor,
 		Jump,
 		Rolling
 	};

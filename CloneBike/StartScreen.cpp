@@ -6,6 +6,7 @@ StartScreen::StartScreen()
 {
 	this->SetPosition(0, 0);
 	song = new Theme();
+	song->Start();
 }
 
 StartScreen::~StartScreen()

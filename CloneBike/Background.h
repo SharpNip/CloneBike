@@ -3,16 +3,9 @@
 #include "BasicG.h"
 #include "Crowd.h"
 
-///////////
-//Level
-///////////
-// TODO:
-//	-Create an array for each sprite
-//	-Load in each sprite seperately
-//	-Apply speed (as variable) to "move" array towards the left
-//	-Enum for each specific item
-//	-Cut sprites up for each item
-//	-Check for what sprites is at the player's location
+/////////////////////////////////////////////////////////////////////
+// Background is the container class for all non-interactive objects
+/////////////////////////////////////////////////////////////////////
 
 class Background :
 	public Component
@@ -20,16 +13,17 @@ class Background :
 public:
 	Background();
 	~Background();
-
+	// Once all the pointers have been initialised, this "loads" the level 
+	// by placing the items in their corresponding places.
 	void LoadLevel();
 
+	// Used to 
 	void Update();
-	void Move();
+	void Move(int speed);
 
 	
 
 private:
-	double currentTime;
 	BasicG* there[3];
 	Crowd*  woah[2];
 	Crowd*	crowd1;

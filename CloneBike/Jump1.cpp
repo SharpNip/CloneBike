@@ -2,26 +2,21 @@
 
 Jump1::Jump1()
 	: Sprite(Texture::ID::Jump1)
-	, itemType(1)
+	, itemType(0)
 	, currentX(0)
 	, currentY(0)
-	, currentTime(0)
 {
+	this->SetPosition(300, 300);
 }
 
 
 Jump1::~Jump1()
 {
 }
-
-void Jump1::Update()
-{
-	
-}
-void Jump1::Move()
+void Jump1::Move(int speed)
 {
 	float dt = Engine::GetInstance()->GetTimer()->GetDeltaTime();
-	currentX -= BASESPEED * dt;
-	this->SetPosition(currentX, LEVEL_OFFSET);
+	currentX -= 500 * dt;
+	this->SetPosition(currentX, OBS_OFFSET);
 
 }
